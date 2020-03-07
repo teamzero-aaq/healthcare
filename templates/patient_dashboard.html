@@ -16,6 +16,38 @@
             <div class="row">
                 <div class="col-sm-12 grid-margin stretch-card">
                     <div class="card">
+
+
+                        <div id="carouselContent" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active text-center p-4">
+                                    <p>lorem ipsum (imagine longer text)</p>
+                                </div>
+                                <div class="carousel-item text-center p-4">
+
+                                    <p>lorem ipsum (imagine longer text)</p>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselContent" role="button"
+                               data-slide="prev">
+                                <span class="mdi mdi-chevron-left text-danger mdi-24px" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselContent" role="button"
+                               data-slide="next">
+                                <span class="mdi mdi-chevron-right text-danger mdi-24px" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+
+                    </div><!--End card body-->
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 grid-margin stretch-card">
+                    <div class="card">
                         <div class="card-body">
                             <!-- Button trigger modal -->
                             <div class="d-flex mb-4">
@@ -73,7 +105,8 @@
                                                     {% csrf_token %}
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">
                                                     Close
                                                 </button>
                                                 <button type="submit" class="btn btn-gradient-success mr-2">Post
@@ -91,21 +124,24 @@
                             {% for key,val in posts.items %}
                                 <div class="col-md-12 stretch-card grid-margin">
                                     <div class="card bg-primary  card-img-holder text-white">
-                                        <div class="card-body">  <span class="badge badge-success float-left">{{val.disease}}</span><br><br>
-                                            
+                                        <div class="card-body"><span
+                                                class="badge badge-success float-left">{{ val.disease }}</span><br><br>
+
                                             <h4 class="font-weight-normal mb-3 "><a href="/posts/{{ key }}"
                                                                                     class="text-white">{{ val.title }}</a></i>
-                                                  
+
 
                                             </h4>
                                             {{ val.postdesc }}
                                             <form action="/addwishlist" method="post" class="mt-3">
                                                 {% csrf_token %}
-                                                <h6 class="card-text"><i class="mdi mdi-heart mdi-20px text-danger" id="likes"></i>
+                                                <h6 class="card-text"><i class="mdi mdi-heart mdi-20px text-danger"
+                                                                         id="likes"></i>
                                                     {{ val.totallike }}
                                                     <i class="mdi mdi-eye mdi-20px ml-3"
                                                        id="views"></i> {{ val.totalview }}
-                                                    <button class="btn btn-danger btn-sm ml-3">Add to Wishlist</button>
+                                                    <button class="btn btn-danger btn-sm ml-3">Add to Wishlist
+                                                    </button>
                                                     <input type="hidden" value="{{ key }}" name="key">
                                                 </h6>
                                             </form>
@@ -120,7 +156,27 @@
                         </div><!-- end card body-->
                     </div><!-- end card-->
                 </div><!--col sidebar end-->
-               
+                <div class="col-sm-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="page-title mb-3">
+                        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> News </h3>
+
+                            <ul class="list-arrow">
+
+
+                                <li><a href="" style="text-decoration : none;" class="text-dark">Lorem</a></li>
+                                <li>{{ news }}</li>
+                                <hr>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--end news-->
+
             </div><!--row end-->
         </div>
         <!-- content-wrapper ends -->

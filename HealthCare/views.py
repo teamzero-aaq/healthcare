@@ -1,13 +1,50 @@
 import collections
+import re
 from collections import OrderedDict
-from datetime import datetime,date
+from datetime import datetime, date
 
 import pyrebase
+from bs4 import BeautifulSoup
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from requests import get
 
 from . import Common
 from . import PyConfig
+
+
+def clean(s):
+    s = re.sub(r"[^\w\s]", '', s)
+    s = s.replace("\n", "")
+    s = s.replace("\t", "")
+    s = s.lower()
+    return s
+
+
+def yt_scrape():
+    r = get('https://www.youtube.com/playlist?list=PLui6Eyny-Uzwzd-9fi_cmhz3UW9gS1raf')
+    page = r.text
+    soup = BeautifulSoup(page, 'html.parser')
+    res = soup.find_all('a', {'class': 'pl-video-title-link'})
+    for l in res:
+        print("https://www.youtube.com" + l.get("href"))
+
+
+def news_scrape():
+    url = "https://techcrunch.com/health/"
+    response = get(url)
+    print(response)
+    page_soup = BeautifulSoup(response.content, 'html.parser')
+    raw_data = page_soup.findAll('a', {'class': 'post-block__title__link'})
+
+    data = []
+    if raw_data:
+        for rd in raw_data:
+            datnum = {}
+            datnum['links'] = rd.get('href')
+            datnum['text'] = clean(rd.text)
+            data.append(datnum)
+        return data
 
 
 def admin(req):
@@ -23,6 +60,11 @@ def connect_firebase():
 
 def login(req):
     return render(req, 'login.html', {})
+
+
+def test(req):
+    return render(req, 'login.html', {})
+
 
 def testing(req):
     db = connect_firebase()
@@ -53,6 +95,7 @@ def addchat(req):
     db.child("chat").update({disease: allchats})
 
     return HttpResponseRedirect('/testing')
+
 
 def verifyuser(request):
     global user
@@ -105,7 +148,7 @@ def patient_dashboard(req):
 
     except:
         pass
-    return render(req, 'patient_dashboard.html', {"posts": posts, "user": Common.currentUser})
+    return render(req, 'patient_dashboard.html', {"posts": posts, "user": Common.currentUser, "news": news_scrape()})
 
 
 def viewpostdetails(req, pk):
