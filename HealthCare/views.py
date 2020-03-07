@@ -63,7 +63,7 @@ def login(req):
 
 
 def test(req):
-    return render(req, 'stress_analysis.html', {})
+    return render(req, 'games.html', {})
 
 
 def testing(req):
@@ -320,7 +320,7 @@ def doctor_dashboard(req):
         all_recq = collections.OrderedDict(reversed(list(all_recq.items())))
         disease = db.child("disease").get().val()
         return render(req, 'doctor_dashboard.html',
-                      {"user": Common.currentUser, "all_q": all_q, "disease": disease, "all_recq": all_recq})
+                      {"user": Common.currentUser, "all_q": all_q, "disease": disease, "all_recq": all_recq, "news": news_scrape()})
     else:
         return HttpResponseRedirect("/login")
 

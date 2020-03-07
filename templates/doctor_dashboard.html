@@ -84,21 +84,21 @@
                         </div><!-- end card body-->
                     </div><!-- end card-->
                 </div><!--col sidebar end-->
-                <div class="col-sm-4 grid-margin stretch-card">
+               <div class="col-sm-4 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h3 class="page-title mb-3">
                         <span class="page-title-icon bg-gradient-primary text-white mr-2">
                           <i class="mdi mdi-format-list-bulleted"></i>
-                        </span> Recent Questions </h3>
+                        </span> News </h3>
 
                             <ul class="list-arrow">
-                                {% for key,val in all_recq.items %}
-                                    <li><a href="/answer/{{ key }}" style="text-decoration:none;"
-                                           class="text-dark">{{ val.question }}</a></li>
-                                    <hr>
-                                {% endfor %}
 
+                                {% for val in news %}
+                                    <li><a class="text-dark" href="{{ val.links }}" target="_blank"
+                                           style="text-decoration : none;">{{ val.text }}</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
