@@ -18,7 +18,7 @@
                     <div class="card">
 
 
-                        <div id="carouselContent" class="carousel slide" data-ride="carousel">
+                        <div class="carousel slide" data-ride="carousel" id="carouselContent">
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active text-center p-4">
                                     <p>lorem ipsum (imagine longer text)</p>
@@ -28,14 +28,14 @@
                                     <p>lorem ipsum (imagine longer text)</p>
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="#carouselContent" role="button"
-                               data-slide="prev">
-                                <span class="mdi mdi-chevron-left text-danger mdi-24px" aria-hidden="true"></span>
+                            <a class="carousel-control-prev" data-slide="prev" href="#carouselContent"
+                               role="button">
+                                <span aria-hidden="true" class="mdi mdi-chevron-left text-danger mdi-24px"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselContent" role="button"
-                               data-slide="next">
-                                <span class="mdi mdi-chevron-right text-danger mdi-24px" aria-hidden="true"></span>
+                            <a class="carousel-control-next" data-slide="next" href="#carouselContent"
+                               role="button">
+                                <span aria-hidden="true" class="mdi mdi-chevron-right text-danger mdi-24px"></span>
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
@@ -56,46 +56,48 @@
                           <i class="mdi mdi-format-list-bulleted"></i>
                         </span> Posts</h3>
 
-                                <button type="button" class="btn btn-primary ml-auto" data-toggle="modal"
-                                        data-target="#exampleModalCenter">
+                                <button class="btn btn-primary ml-auto" data-target="#exampleModalCenter"
+                                        data-toggle="modal"
+                                        type="button">
                                     Share Your Experience
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade"
+                                     id="exampleModalCenter"
+                                     role="dialog" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content bg-white">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLongTitle">Post your
                                                     Experience</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
+                                                <button aria-label="Close" class="close" data-dismiss="modal"
+                                                        type="button">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form class="forms-sample" method="post" action="/addpatientpost">
+                                                <form action="/addpatientpost" class="forms-sample" method="post">
                                                     <div class="form-group">
                                                         <label for="title1">Title</label>
-                                                        <input type="text" class="form-control" id="posttitle"
-                                                               name="posttitle"
-                                                               placeholder="Enter your Title...">
+                                                        <input class="form-control" id="posttitle" name="posttitle"
+                                                               placeholder="Enter your Title..."
+                                                               type="text">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="description">Description</label>
                                                         <textarea class="form-control" id="postdesc" name="postdesc"
-                                                                  rows="4"
-                                                                  placeholder="Describe your Experience"></textarea>
+                                                                  placeholder="Describe your Experience"
+                                                                  rows="4"></textarea>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <input type="file" name="img[]" class="file-upload-default">
+                                                        <input class="file-upload-default" name="img[]" type="file">
                                                         <div class="input-group col-xs-12">
-                                                            <input type="text"
-                                                                   class="form-control form-control-sm file-upload-info"
-                                                                   disabled placeholder="Upload Image">
+                                                            <input class="form-control form-control-sm file-upload-info"
+                                                                   disabled
+                                                                   placeholder="Upload Image" type="text">
                                                             <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary btn-sm"
                                     type="button">Upload</button>
@@ -105,11 +107,11 @@
                                                     {% csrf_token %}
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">
+                                                <button class="btn btn-secondary" data-dismiss="modal"
+                                                        type="button">
                                                     Close
                                                 </button>
-                                                <button type="submit" class="btn btn-gradient-success mr-2">Post
+                                                <button class="btn btn-gradient-success mr-2" type="submit">Post
                                                 </button>
 
                                                 </form>
@@ -127,13 +129,14 @@
                                         <div class="card-body"><span
                                                 class="badge badge-success float-left">{{ val.disease }}</span><br><br>
 
-                                            <h4 class="font-weight-normal mb-3 "><a href="/posts/{{ key }}"
-                                                                                    class="text-white">{{ val.title }}</a></i>
+                                            <h4 class="font-weight-normal mb-3 "><a class="text-white"
+                                                                                    href="/posts/{{ key }}">
+                                                {{ val.title }}</a></i>
 
 
                                             </h4>
                                             {{ val.postdesc }}
-                                            <form action="/addwishlist" method="post" class="mt-3">
+                                            <form action="/addwishlist" class="mt-3" method="post">
                                                 {% csrf_token %}
                                                 <h6 class="card-text"><i class="mdi mdi-heart mdi-20px text-danger"
                                                                          id="likes"></i>
@@ -142,7 +145,7 @@
                                                        id="views"></i> {{ val.totalview }}
                                                     <button class="btn btn-danger btn-sm ml-3">Add to Wishlist
                                                     </button>
-                                                    <input type="hidden" value="{{ key }}" name="key">
+                                                    <input name="key" type="hidden" value="{{ key }}">
                                                 </h6>
                                             </form>
                                         </div>
@@ -166,12 +169,11 @@
 
                             <ul class="list-arrow">
 
-
-                                <li><a href="" style="text-decoration : none;" class="text-dark">Lorem</a></li>
-                                <li>{{ news }}</li>
-                                <hr>
-
-
+                                {% for val in news %}
+                                    <li><a class="text-dark" href="{{ val.links }}" target="_blank"
+                                           style="text-decoration : none;">{{ val.text }}</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>

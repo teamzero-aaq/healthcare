@@ -1,10 +1,10 @@
 config1 = {
-    "apiKey": "AIzaSyDvDRwiV92-9N6JMFQiUuFkAAQ18plXZOg",
-    "authDomain": "hack-da5a4.firebaseapp.com",
-    "databaseURL": "https://hack-da5a4.firebaseio.com",
-    "projectId": "hack-da5a4",
-    "storageBucket": "hack-da5a4.appspot.com",
-    "messagingSenderId": "675429302532",
-    "appId": "1:675429302532:web:b6a3e1e6769542e686d051",
-    "measurementId": "G-3F394BSBJ9"
+
+    "apiKey": "AIzaSyAAap3m4dSLey6R_0BAPm5PwF9hjOj_EpY",
+    "authDomain": "healthcare-zero.firebaseapp.com",
+    "databaseURL": "https://healthcare-zero.firebaseio.com",
+    "projectId": "healthcare-zero",
+    "storageBucket": "healthcare-zero.appspot.com",
+    "messagingSenderId": "901489242751",
+    "appId": "1:901489242751:web:ad46fe40e9c75ed043854a"
 }
