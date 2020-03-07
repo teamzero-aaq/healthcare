@@ -64,7 +64,7 @@ def login(req):
 
 
 def test(req):
-    return render(req, 'games.html', {})
+    return render(req, 'patient_details.html', {})
 
 
 def testing(req):
@@ -220,7 +220,7 @@ def chatwithdoc(req, pk):
     docd = db.child("users").child(str(pk)).get().val()
     timestamp = datetime.timestamp(datetime.now())
     strtimestamp = str(timestamp).replace('.', '')
-    msg = f"http://localhost:3000/chat?name=" + docd.get('name').replace(" ", "%20") + "&room=" + strtimestamp
+    msg = "http://localhost:3000/chat?name=" + docd.get('name').replace(" ", "%20") + "&room=" + strtimestamp
     sendmail(docd.get("mail"), "New Chat request from - " + Common.currentUser.get("rname"),
              "Testing mail", msg)
 
