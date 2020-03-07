@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include "html_head.html" %}
+  
+    
+   
+  </head>
+  <body>
+    <div class="container-scroller">
+      
+       {% include "patient_sidebar.html" %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+          
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h4 class="card-title"> Doctor Records</h4>
+                            </div>
+                            <div class="col-md-6">
+                                  <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal"
+                                    data-target="#add_doctor">
+                                    Add Doctor </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="add_doctor" tabindex="-1" role="dialog"
+                                    aria-labelledby="ploadcsv" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content bg-white">
+                                            <div class=" modal-header">
+                                                <h5 class="modal-title" id="ploadcsv">Add New Doctor</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                               
+                                                 <form action ="" method="POST">
+                    {% csrf_token %}
+                        <div class="">
+                        
+                          <div class="row">
+
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-username">Name</label>
+                                <input type="text" name="dname" id="dname" class="form-control form-control-alternative" placeholder="Name" value="">
+                              </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-email">Email address</label>
+                                <input type="text" name="demail" id="demail" class="form-control form-control-alternative" placeholder="name@example.com">
+                              </div>
+                            </div>
+
+                          </div>
+                          <div class="row">
+
+                             <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-contact">Contact</label>
+                                <input type="text" name="dcontact" id="dcontact" class="form-control form-control-alternative" placeholder="Enter contact" value="">
+                              </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-first-name">Specialist</label>
+                                <input type="text" name="specialist" id="specialist" class="form-control form-control-alternative" placeholder="Specialist" value="">
+                              </div>
+                            </div>
+                        </div>
+                            <div class="row">
+                              <div class="col-lg-12">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-first-name">About Me</label>
+                               <div class="form-group">
+                      
+                        <textarea class="form-control" id="bio" rows="4" placeholder="Write your Bio...."></textarea>
+                      </div>
+                              </div>
+                            </div>
+                            </div>
+
+                            
+
+                          
+                      
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+                        </div>
+                       
+                        
+                      </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <table class="table d-table table-responsive mt-4">
+                            <thead class="text-center">
+                                <tr>
+                                    
+                                    <th>Doctor Name</th>
+                                    <th>Email</th>
+                                    <th>Contact</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                    
+                                </tr>
+
+                            </thead>
+                            <tbody class="text-center">
+
+                                <tr>
+                                    
+                                    <td>Name </td>
+                                    <td>mai@gamil.edu </td>
+                                    <td> Contact</td>
+                                    <td> <span style="color:#e67e22;">Pending</span>
+                                    <span style="color:#2ecc71;">Approved</span>
+                                    <span style="color:#e74c3c;">Rejected</span></td>
+                                    <td>
+                                   <button type="button" class="btn btn-sm btn-primary " data-toggle="modal"
+                                    data-target="#action_doctor">
+                                    Action </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="action_doctor" tabindex="-1" role="dialog"
+                                    aria-labelledby="ploadcsv" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content bg-white">
+                                            <div class=" modal-header">
+                                                <h5 class="modal-title" id="ploadcsv">Doctor Details</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                               
+                  <form action ="" method="POST">
+                    {% csrf_token %}
+                        <div class="">
+                        
+                          <div class="row">
+
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-username">Name</label>
+                                <input type="text" name="dname" id="dname" class="form-control form-control-alternative" placeholder="Name" value="">
+                              </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-email">Email address</label>
+                                <input type="text" name="demail" id="demail" class="form-control form-control-alternative" placeholder="name@example.com">
+                              </div>
+                            </div>
+
+                          </div>
+                          <div class="row">
+
+                             <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-contact">Contact</label>
+                                <input type="text" name="dcontact" id="dcontact" class="form-control form-control-alternative" placeholder="Enter contact" value="">
+                              </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-first-name">Specialist</label>
+                                <input type="text" name="specialist" id="specialist" class="form-control form-control-alternative" placeholder="Specialist" value="">
+                              </div>
+                            </div>
+                        </div>
+                            <div class="row">
+                              <div class="col-lg-12">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-first-name">About Me</label>
+                               <div class="form-group">
+                      
+                        <textarea class="form-control" id="bio" rows="4" placeholder="Write your Bio...."></textarea>
+                      </div>
+
+
+                              </div>
+                            </div>
+                            </div>
+
+                            
+
+                          
+                    
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-gradient-danger mr-2">Reject</button>
+                                                 <button type="submit" class="btn btn-gradient-primary mr-2">Approve</button>
+                        </div>
+                       
+                        
+                      </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                                 </td>
+                                </tr>
+
+
+
+
+                            </tbody>
+                        </table>
+                    </div><!-- card Body ends -->
+                </div><!-- card ends -->
+            </div><!-- col ends -->
+        </div><!-- main row ends -->
+          </div>
+          <!-- content-wrapper ends -->
+          {% include "footer.html" %}
+  </body>
+</html>

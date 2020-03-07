@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+
+</head>
+<body>
+<div class="container-scroller">
+
+    {% include "doctor_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+
+            <div class="row">
+                <div class="col-sm-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Button trigger modal -->
+                            <div class="d-flex mb-4">
+                                <h3 class="page-title">
+			               <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Posts</h3>
+
+                                <button type="button" class="btn btn-primary ml-auto" data-toggle="modal"
+                                        data-target="#exampleModalCenter">
+                                    Share Your Tips
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content bg-white">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Post Tips</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="forms-sample" method="post" action="/adddocpost">
+                                                    <div class="form-group">
+                                                        <label for="title1">Title</label>
+                                                        <input type="text" class="form-control" id="posttitle"
+                                                               name="posttitle" placeholder="Enter your Title...">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="description">Description</label>
+                                                        <textarea class="form-control" id="postdesc" name="postdesc"
+                                                                  rows="4"
+                                                                  placeholder="Describe your Experience"></textarea>
+                                                    </div>
+                                                    {% csrf_token %}
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" class="btn btn-gradient-success mr-2">Post
+                                                </button>
+
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Start Loop-->
+
+
+                            {% for key,val in posts.items %}
+                                <div class="col-md-12 stretch-card grid-margin">
+                                    <div class="card bg-gradient-primary card-img-holder text-white">
+                                        <div class="card-body">
+                                            <img src="{% static '/assets/images/dashboard/circle.svg' %}"
+                                                 class="card-img-absolute" alt="circle-image"/>
+                                            <h4 class="font-weight-normal mb-3 "><a href="/posts/{{ key }}"
+                                                                                    class="text-white">{{ val.title }}</a></i>
+                                            </h4>
+                                            {{ val.postdesc }}
+                                            {% csrf_token %}
+                                            <h6 class="card-text"><i class="mdi mdi-heart mdi-20px" id="likes"></i>
+                                                {{ val.totallike }}
+                                                <i class="mdi mdi-eye mdi-20px ml-3"
+                                                   id="views"></i> {{ val.totalview }}
+                                            </h6>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            <div class="col-md-12 stretch-card grid-margin">
+                                <div class="card bg-gradient-primary card-img-holder text-white">
+                                    <div class="card-body">
+                                        <img src="{% static '/assets/images/dashboard/circle.svg' %}"
+                                             class="card-img-absolute" alt="circle-image"/>
+                                        <h4 class="font-weight-normal mb-3 "><a href="#"
+                                                                                class="text-white">Title</a></i></h4>
+
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis minima
+                                            excepturi similique rem officiis perferendis odio nesciunt optio alias
+                                            itaque perspiciatis, sed autem repellendus aspernatur, animi facere iusto
+                                            consequatur odit?</p>
+                                        <h6 class="card-text"><i class="mdi mdi-heart mdi-20px" id="likes"></i> 100
+                                            <i class="mdi mdi-eye mdi-20px ml-3" id="views"></i> 100 </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--end-->
+
+
+                        </div><!-- end card body-->
+                    </div><!-- end card-->
+                </div><!--col sidebar end-->
+               
+            </div><!--row end-->
+        </div>
+        <!-- content-wrapper ends -->
+        {% include "footer.html" %}
+</body>
+</html>

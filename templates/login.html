@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <title>Login</title>
+
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'assets/css/styles.css' %}" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+
+<section class="login-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="image-wrapper">
+                    <img class="img-responsive" src="{% static 'assets/images/login1.gif' %}" alt="">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="content-wrapper label-input">
+                    <h2 class="page-title mb-4">Sign in to Explore</h2>
+                    <form method="post" action="/verifyuser">
+                        {% csrf_token %}
+                        <div class="phone-wrapper field-wrapper">
+                            <input type="text" name="mail" id="mail" placeholder="Email" value="user@gmail.com">
+                        </div>
+                        <div class="pass-wrapper field-wrapper">
+                            <input type="password" name="password" id="password" placeholder="Password" value="123"/>
+                        </div>
+                        <input class="form-submit-btn" type="submit" value="Log in">
+                        <hr>
+                        <p class="text-center">New Here? Register for <a class="form-link create-ac-btn"
+                                                                         href="/doctor_signup">Doctor </a> or
+                            <a class="form-link create-ac-btn" href="/patient_signup">Patient</a></p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+{
+	"Trust": {
+		"1": {
+			"name": "TATA",
+			"username": "tata",
+			"password": "tata",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Ftata.png?alt=media",
+			"contact": "0227894562",
+			"mailid": "tata@gmail.com",
+			"address": "Bombay House, 24, Homi Mody Street,Mumbai 400086",
+			"vision": "To provide fund to needy students",
+			"about": "In a country that is home to the world’s second-largest population, when one of its largest enterprises providentially happens to be a philanthropic organisation, it raises hopes for a promising and sustainable future. For people across the country, the Tata Trusts symbolise humanitarianism and personify the prodigious force that advances new frontiers of social and economic development."
+
+		},
+		
+		"2": {
+			"name": "AMP",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Famp.png?alt=media",
+			"username": "amp",
+			"password": "amp",
+			"contact": "0227894562",
+			"mailid": "amp@gmail.com",
+			"address": "116/ B.R.B. Chandorkar Marg,Beside MTNL Exchange,Near Agripada Police Station,Mumbai Central, Mumbai 400008,",
+			"vision": "To provide fund to needy students",
+			"about": "Detail for trust"
+		},
+		
+		"3": {
+			"name": "AMP",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Famp.png?alt=media",
+			"username": "amp",
+			"password": "amp",
+			"contact": "0227894562",
+			"mailid": "amp@gmail.com",
+			"address": "116/ B.R.B. Chandorkar Marg,Beside MTNL Exchange,Near Agripada Police Station,Mumbai Central, Mumbai 400008,",
+			"vision": "To provide fund to needy students",
+			"about": "Detail for trust"
+		},
+		
+		"4": {
+			"name": "AMP",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Famp.png?alt=media",
+			"username": "amp",
+			"password": "amp",
+			"contact": "0227894562",
+			"mailid": "amp@gmail.com",
+			"address": "116/ B.R.B. Chandorkar Marg,Beside MTNL Exchange,Near Agripada Police Station,Mumbai Central, Mumbai 400008,",
+			"vision": "To provide fund to needy students",
+			"about": "Detail for trust"
+		}
+		,
+		"6": {
+			"name": "AMP",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Famp.png?alt=media",
+			"username": "amp",
+			"password": "amp",
+			"contact": "0227894562",
+			"mailid": "amp@gmail.com",
+			"address": "116/ B.R.B. Chandorkar Marg,Beside MTNL Exchange,Near Agripada Police Station,Mumbai Central, Mumbai 400008,",
+			"vision": "To provide fund to needy students",
+			"about": "Detail for trust"
+		},
+		"7": {
+			"name": "AMP",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Famp.png?alt=media",
+			"username": "amp",
+			"password": "amp",
+			"contact": "0227894562",
+			"mailid": "amp@gmail.com",
+			"address": "116/ B.R.B. Chandorkar Marg,Beside MTNL Exchange,Near Agripada Police Station,Mumbai Central, Mumbai 400008,",
+			"vision": "To provide fund to needy students",
+			"about": "Detail for trust"
+		}
+		,
+		"5": {
+			"name": "AMP",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Famp.png?alt=media",
+			"username": "amp",
+			"password": "amp",
+			"contact": "0227894562",
+			"mailid": "amp@gmail.com",
+			"address": "116/ B.R.B. Chandorkar Marg,Beside MTNL Exchange,Near Agripada Police Station,Mumbai Central, Mumbai 400008,",
+			"vision": "To provide fund to needy students",
+			"about": "Detail for trust"
+		}
+
+	},
+
+	"Scheme": {
+		"1": {
+			"trust_id": "1",
+			"name": "TATA Scholarship for Engineering",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Ftata.png?alt=media",
+			
+			"course": "Engineering",
+			"level": "Post Graduation",
+			"amount": "15,000",
+			"eligibility": "75% or more",
+			"lastdate": "1-Jan-2020"
+
+		},
+		"2": {
+			"trust_id": "1",
+			"name": "TATA Scholarship for HSC ",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Ftata.png?alt=media",
+			
+			"course": "HSC",
+			"level": "College",
+			"amount": "5,000",
+			"eligibility": "75% or more",
+			"lastdate": "1-Jan-2020"
+
+		},	
+		
+		"3": {
+			"trust_id": "1",
+			"name": "TATA Scholarship for 8-10",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Ftata.png?alt=media",
+			
+			"course": "School",
+			"level": "School",
+			"amount": "3000",
+			"eligibility": "75% or more",
+			"lastdate": "1-Jan-2020"
+
+		},
+		"4": {
+			"trust_id": "1",
+			"name": "TATA Scholarship for 8-10",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Ftata.png?alt=media",
+			
+			"course": "School",
+			"level": "School",
+			"amount": "3000",
+			"eligibility": "75% or more",
+			"lastdate": "1-Jan-2020"
+
+		},
+		"5": {
+			"trust_id": "2",
+			"name": "TATA Scholarship for 8-10",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Famp.png?alt=media",
+	
+			"course": "School",
+			"level": "School",
+			"amount": "3000",
+			"eligibility": "75% or more",
+			"lastdate": "1-Jan-2020"
+
+		},
+		"6": {
+			"trust_id": "1",
+			"name": "TATA Scholarship for 8-10",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Ftata.png?alt=media",
+			
+			"course": "School",
+			"level": "School",
+			"amount": "3000",
+			"eligibility": "75% or more",
+			"lastdate": "1-Jan-2020"
+
+		},
+		"7": {
+			"trust_id": "1",
+			"name": "TATA Scholarship for 8-10",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Ftata.png?alt=media",
+			
+			"course": "School",
+			"level": "School",
+			"amount": "3000",
+			"eligibility": "75% or more",
+			"lastdate": "1-Jan-2020"
+
+		},
+		"8": {
+			"trust_id": "1",
+			"name": "TATA Scholarship for 8-10",
+			"logo": "https://firebasestorage.googleapis.com/v0/b/scholar-help-shifa.appspot.com/o/trust_logo%2Ftata.png?alt=media",
+			
+			"course": "School",
+			"level": "School",
+			"amount": "3000",
+			"eligibility": "75% or more",
+			"lastdate": "1-Jan-2020"
+
+		}
+		}
+}

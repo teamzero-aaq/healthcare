@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+    <!-- plugins:css -->
+
+</head>
+<body>
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    {% include "doctor_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+
+
+            <div class="row">
+                <div class="col-sm-8 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Button trigger modal -->
+
+                            <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Questions</h3>
+                            <form action="/doctor_dashboard" method="get">
+
+                                <div class="row mt-4">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Sort by Disease : </label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control form-control-sm" id="d" name="d" required>
+                                                    <option value="">Select</option>
+                                                    {% for i in disease %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <button class="btn btn-gradient-primary btn-sm float-right" type="submit">
+                                                Sort
+                                            </button>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--Start Loop-->
+
+
+                            <div class="col-sm-12 grid-margin stretch-card">
+
+
+                                <ul class="list-arrow">
+
+                                    {% for key,val in all_q.items %}
+
+                                        <li><span class="badge badge-primary">{{val.disease}}</span>
+                                               <br> 
+                                            <a href="/answer/{{ key }}" style="text-decoration : none;"
+                                               class="text-dark">{{ val.question }}</a>
+                                            <hr>
+                                        </li>
+
+
+
+
+
+                                    {% endfor %}
+
+
+                                </ul>
+
+                            </div>
+
+
+                            <!--end-->
+
+
+                        </div><!-- end card body-->
+                    </div><!-- end card-->
+                </div><!--col sidebar end-->
+                <div class="col-sm-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="page-title mb-3">
+                        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Recent Questions </h3>
+
+                            <ul class="list-arrow">
+                                {% for key,val in all_recq.items %}
+                                    <li><a href="/answer/{{ key }}" style="text-decoration:none;"
+                                           class="text-dark">{{ val.question }}</a></li>
+                                    <hr>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--end news-->
+            </div><!--row end-->
+        </div>
+        <!-- content-wrapper ends -->
+        {% include "footer.html" %}
+</body>
+</html>

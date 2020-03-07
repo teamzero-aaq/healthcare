@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+<head>
+    <title>product name</title>
+</head>
+<body>
+
+<script src="{% static '/assets/js/sweetalert2.all.min.js' %}"></script>
+
+<script>
+
+    Swal.fire({
+        title: "{{swtitle}}",
+        text: "{{swmsg}}",
+        icon: "{{swicon}}"
+    }).then(function () {
+        window.location = "/{{path}}";
+    });
+
+</script>
+</body>
+
+</html>

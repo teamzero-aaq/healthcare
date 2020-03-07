@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+
+</head>
+<body>
+
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    {% include "patient_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-xl-12 order-xl-1">
+                    <div class="card p-3">
+
+                        <div class="card-header bg-white border-0 mt-2">
+                            <div class="row align-items-center">
+                                <div class="col-8 grid-margin stretch-card">
+                                    <h3 class="page-title">
+			                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+			                  <i class="mdi mdi-lightbulb"></i>
+			                </span> Profile </h3>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="pl-lg-4">
+                                    <h6 class="heading-small text-muted mb-4">User Information</h6>
+                                    <div class="row">
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-username">Name</label>
+                                                <input type="text" name="pname" id="pname"
+                                                       class="form-control form-control-alternative" placeholder="Name"
+                                                       value="{{ user.name }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-email">Email
+                                                    address</label>
+                                                <input type="text" name="email" id="email"
+                                                       class="form-control form-control-alternative"
+                                                       placeholder="name@example.com" value="{{ user.mail }}" disabled>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-contact">Contact</label>
+                                                <input type="text" name="pcontact" id="pcontact"
+                                                       class="form-control form-control-alternative"
+                                                       placeholder="Enter contact" value="{{ user.phone }}" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-first-name">Disease</label>
+                                                <input type="text" name="disease" id="disease"
+                                                       class="form-control form-control-alternative"
+                                                       placeholder="Disease" value="{{ user.disease }}">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    {#                                    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>#}
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include "footer.html" %}
+</body>
+</html>

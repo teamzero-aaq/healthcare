@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+
+</head>
+<body>
+
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    {% include "patient_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+
+            <div class="page-header">
+                <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-format-list-bulleted-type"></i>
+                </span> Watch List </h3>
+
+            </div>
+            <div class="row">
+                <!-- Start Loop -->
+
+                {% for key,val in wishlist.items %}
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-primary card-img-holder text-white">
+                            <div class="card-body">
+
+                                <h4 class="font-weight-normal mb-3 "><a href="/posts/{{ key }}"
+                                                                        class="text-white">{{ val.title }}</a></i></h4>
+
+
+                                <p>{{ val.postdesc }}</p>
+                                <form action="/removewishlist" method="post">
+                                    <input type="hidden" name="key" value="{{ key }}">
+                                    <h6 class="card-text"><i class="mdi mdi-heart mdi-20px text-danger"
+                                                             id="likes"></i> {{ val.totallike }}
+                                        <i class="mdi mdi-eye mdi-20px ml-3" id="views"></i> {{ val.totalview }}
+                                        <button class="btn btn-danger btn-sm ml-3">Remove</button>
+                                        {% csrf_token %}
+                                    </h6>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end Loop -->
+                {% endfor %}
+
+
+            </div><!--row end-->
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include "footer.html" %}
+</body>
+</html>

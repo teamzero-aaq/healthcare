@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+
+</head>
+<body>
+<div class="container-scroller">
+
+    {% include "doctor_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+
+            <div class="row">
+                <div class="col-sm-8 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Button trigger modal -->
+
+                            <h3 class="page-title">
+			               <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> {{ ques.question }}</h3>
+
+                            <form class="forms-sample mt-4" method="post" action="/docgiveans">
+                                <div class="form-group">
+                                    {% csrf_token %}
+                                    <textarea class="form-control" id="anstxt" name="anstxt" rows="4"
+                                              placeholder="Write Answer.... "></textarea>
+                                    <input type="hidden" name="key" value="{{ pk }}">
+                                </div>
+                                <button type="submit" class="btn btn-gradient-dark mr-2 btn-sm mb-4">Post</button>
+                            </form>
+
+                            <!--Start Loop-->
+                            <hr>
+
+                            {% if ques.answer %}
+                                {% for val in ques.answer %}
+
+                                    <div class="col-sm-12 mb-3">
+                                        <a href="/doc_profile/{{ val.docid }}" style="text-decoration : none;">
+                                            <span class="badge badge-success mb-2">{{ val.docname }}</span> </a><span
+                                            class="mb-2"> : said</span>
+
+                                        <p>{{ val.desc }}</p>
+
+                                        <h6 class="card-text">
+                                        </h6>
+
+
+                                    </div><!--col sidebar end-->
+                                {% endfor %}
+                            {% else %}
+                                <div class="col-sm-12 mb-3">
+                                    <div class="card">
+                                        <div class="card-body">
+
+
+                                            <p>No Answer</p>
+
+
+                                        </div><!-- end card body-->
+                                    </div><!-- end card-->
+
+
+                                </div>
+
+                            {% endif %}
+
+                        </div><!--card body end-->
+                    </div><!--card end-->
+                </div><!--col sidebar end-->
+                <div class="col-sm-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="page-title mb-3">
+                        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Recent Questions </h3>
+
+                            <ul class="list-arrow">
+
+                                {% for key,val in all_recq.items %}
+                                    <li><a href="/answer/{{ key }}" style="text-decoration:none;"
+                                           class="text-dark">{{ val.question }}</a></li>
+                                    <hr>
+                                {% endfor %}
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--end news-->
+            </div><!--row end-->
+        </div>
+        <!-- content-wrapper ends -->
+        {% include "footer.html" %}
+</body>
+</html>

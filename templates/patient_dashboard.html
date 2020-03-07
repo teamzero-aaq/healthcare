@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+
+</head>
+<body>
+<div class="container-scroller">
+
+    {% include "patient_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+
+            <div class="row">
+                <div class="col-sm-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Button trigger modal -->
+                            <div class="d-flex mb-4">
+                                <h3 class="page-title">
+			               <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Posts</h3>
+
+                                <button type="button" class="btn btn-primary ml-auto" data-toggle="modal"
+                                        data-target="#exampleModalCenter">
+                                    Share Your Experience
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content bg-white">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Post your
+                                                    Experience</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="forms-sample" method="post" action="/addpatientpost">
+                                                    <div class="form-group">
+                                                        <label for="title1">Title</label>
+                                                        <input type="text" class="form-control" id="posttitle"
+                                                               name="posttitle"
+                                                               placeholder="Enter your Title...">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="description">Description</label>
+                                                        <textarea class="form-control" id="postdesc" name="postdesc"
+                                                                  rows="4"
+                                                                  placeholder="Describe your Experience"></textarea>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input type="file" name="img[]" class="file-upload-default">
+                                                        <div class="input-group col-xs-12">
+                                                            <input type="text"
+                                                                   class="form-control form-control-sm file-upload-info"
+                                                                   disabled placeholder="Upload Image">
+                                                            <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary btn-sm"
+                                    type="button">Upload</button>
+                          </span>
+                                                        </div>
+                                                    </div>
+                                                    {% csrf_token %}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" class="btn btn-gradient-success mr-2">Post
+                                                </button>
+
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Start Loop-->
+
+                            {% for key,val in posts.items %}
+                                <div class="col-md-12 stretch-card grid-margin">
+                                    <div class="card bg-primary  card-img-holder text-white">
+                                        <div class="card-body">  <span class="badge badge-success float-left">{{val.disease}}</span><br><br>
+                                            
+                                            <h4 class="font-weight-normal mb-3 "><a href="/posts/{{ key }}"
+                                                                                    class="text-white">{{ val.title }}</a></i>
+                                                  
+
+                                            </h4>
+                                            {{ val.postdesc }}
+                                            <form action="/addwishlist" method="post" class="mt-3">
+                                                {% csrf_token %}
+                                                <h6 class="card-text"><i class="mdi mdi-heart mdi-20px text-danger" id="likes"></i>
+                                                    {{ val.totallike }}
+                                                    <i class="mdi mdi-eye mdi-20px ml-3"
+                                                       id="views"></i> {{ val.totalview }}
+                                                    <button class="btn btn-danger btn-sm ml-3">Add to Wishlist</button>
+                                                    <input type="hidden" value="{{ key }}" name="key">
+                                                </h6>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            <!--end-->
+
+
+                        </div><!-- end card body-->
+                    </div><!-- end card-->
+                </div><!--col sidebar end-->
+               
+            </div><!--row end-->
+        </div>
+        <!-- content-wrapper ends -->
+        {% include "footer.html" %}
+</body>
+</html>

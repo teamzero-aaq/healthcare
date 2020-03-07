@@ -1,0 +1,71 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include "html_head.html" %}
+  
+    
+    
+  </head>
+  <body>
+    <div class="container-scroller">
+      
+       {% include "doctor_sidebar.html" %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+          
+            <div class="row">
+              <div class="col-sm-8 grid-margin stretch-card">
+                 <div class="card">
+                  <div class="card-body">
+                <!-- Button trigger modal -->
+                
+                <h3 class="page-title">
+			               <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Title</h3>
+		            
+                    <form class="forms-sample mt-4">
+                      <div class="form-group">
+                       
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="Write Answer.... "></textarea>
+                      </div>
+                        <button type="submit" class="btn btn-gradient-dark mr-2 btn-sm mb-4">Post</button>
+                    </form>
+       
+                <!--Start Loop-->
+              <hr>
+              <span class="badge badge-success mb-2">Doctor Name</span> <span class="mb-2"> : said</span>
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium voluptas soluta eligendi, in, natus delectus perferendis incidunt excepturi impedit error eum explicabo sequi labore quam sint quae quasi vero esse!</p>
+                     <hr>
+
+                      <span class="badge badge-success mb-2">Doctor Name</span> <span class="mb-2"> : said</span>
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium voluptas soluta eligendi, in, natus delectus perferendis incidunt excepturi impedit error eum explicabo sequi labore quam sint quae quasi vero esse!</p>
+                       
+              </div><!--card body end-->
+              </div><!--card end-->
+            </div><!--col sidebar end-->
+            <div class="col-sm-4 grid-margin stretch-card">
+                   <div class="card">
+                    <div class="card-body">
+                       <h3 class="page-title mb-3">
+                        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Recent Questions </h3>
+                     
+                      <ul class="list-arrow">
+                      
+                        <li><a href="" style="text-decoration : none;" class="text-dark">Lorem</a></li>
+                         <hr>
+                      
+                       
+                      </ul>
+                    </div>
+                  </div>
+              </div><!--end news-->
+            </div><!--row end-->
+          </div>
+          <!-- content-wrapper ends -->
+          {% include "footer.html" %}
+  </body>
+</html>

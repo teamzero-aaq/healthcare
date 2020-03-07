@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+
+</head>
+<body>
+<div class="container-scroller">
+    
+
+    {% include "patient_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+
+            <div class="row">
+                <div class="col-sm-8 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Button trigger modal -->
+
+                            <h3 class="page-title">
+			               <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Chat Disscussion - {{ user.disease }}
+                                <button class="btn btn-danger btn-rounded btn-icon float-right" onclick="voice3()"><i
+                                        class="mdi mdi-microphone-outline"></i></button>
+                            </h3>
+
+
+                            <br>
+                            <br>
+
+                            {% for i in allchats %}
+                                <div class="row">
+                                    <div class="col-10">
+                                        <p class="text-muted mb-0">{{ i.id }}</p>
+                                        <p class="text-lg-left mb-0 mt-0">{{ i.msg }}</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <p class="text-muted text-sm-left mb-1 mt-0">{{ i.date }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <!--end-->
+                            <form class="forms-sample mt-4" action="/addchat" method="post">
+
+                                <div class="form-group">
+
+                                    <textarea class="form-control" id="msg" name="msg" rows="2"
+                                              placeholder="Sent msg "></textarea>
+                                    <input type="hidden" name="dd" value="{{ user.disease }}">
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        {% csrf_token %}
+                                        <button type="submit"
+                                                class="btn btn-gradient-success mr-2 btn-sm float-right mb-4">
+                                            Sent
+                                        </button>
+                                    </div>
+                                </div>
+                                <hr>
+
+
+                            </form>
+
+
+                        </div><!-- end card body-->
+                    </div><!-- end card-->
+                </div><!--col sidebar end-->
+
+            </div><!--row end-->
+        </div>
+        <!-- content-wrapper ends -->
+        {% include "footer.html" %}
+</body>
+</html>

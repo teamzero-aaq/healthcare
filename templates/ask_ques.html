@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+
+</head>
+<body>
+<div class="container-scroller">
+
+    {% include "patient_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+
+            <div class="row">
+                <div class="col-sm-8 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Button trigger modal -->
+
+                            <h3 class="page-title">
+			               <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Ask Questions to Doctors
+                                <button class="btn btn-danger btn-rounded btn-icon float-right" onclick="voice()"><i
+                                        class="mdi mdi-microphone-outline"></i></button>
+                            </h3>
+
+                            <form class="forms-sample mt-4" action="/addpatques" method="post">
+
+                                <div class="form-group">
+
+                                    <textarea class="form-control" id="voice_text" rows="4"
+                                              placeholder="Ask Questions "></textarea>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="file" name="img[]" class="file-upload-default">
+                                            <div class="input-group col-xs-12">
+                                                <input type="text" class="form-control form-control-sm file-upload-info"
+                                                       disabled placeholder="Upload Image">
+                                                <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary btn-sm"
+                                    type="button">Upload</button>
+                          </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        {% csrf_token %}
+                                        <button type="submit"
+                                                class="btn btn-gradient-success mr-2 btn-sm float-right mb-4">
+                                            Post
+                                        </button>
+                                    </div>
+                                </div>
+                                <hr>
+
+
+                            </form>
+
+                            <!--Start Loop-->
+
+                            {% for key,val in all_q.items %}
+                                <div class="col-sm-12 grid-margin stretch-card mb-0">
+
+
+                                    <ul class="list-arrow">
+
+                                        <li><a href="/question/{{ key }}" style="text-decoration : none;"
+                                               class="text-dark">{{ val.question }}</a></li>
+                                        <hr>
+
+
+                                    </ul>
+
+                                </div>
+
+                            {% endfor %}
+                            <!--end-->
+
+
+                        </div><!-- end card body-->
+                    </div><!-- end card-->
+                </div><!--col sidebar end-->
+                <div class="col-sm-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="page-title mb-3">
+                        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Sort by Disease </h3>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <select class="form-control" name="disease" id="disease">
+                                        <option value="">A</option>
+                                        <option value="">B</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <ul class="list-arrow">
+
+                                <li><a href="" style="text-decoration : none;" class="text-dark">Lorem</a></li>
+                                <hr>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--end news-->
+            </div><!--row end-->
+        </div>
+        <!-- content-wrapper ends -->
+        {% include "footer.html" %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<head>
+    <title>Hack</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+<script>
+
+    Swal.fire({
+        title: "{{swtitle}}",
+        text: "{{swmsg}}",
+        icon: "{{swicon}}"
+    }).then(function () {
+        window.location = "/{{path}}";
+    });
+
+</script>
+</body>
+
+</html>

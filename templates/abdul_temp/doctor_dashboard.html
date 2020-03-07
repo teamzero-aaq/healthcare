@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include "html_head.html" %}
+  
+    
+   
+  </head>
+  <body>
+    <div class="container-scroller">
+      
+       {% include "patient_sidebar.html" %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+          
+            <div class="row">
+              <div class="col-sm-8 grid-margin stretch-card">
+                 <div class="card">
+                  <div class="card-body">
+                <!-- Button trigger modal -->
+                
+                <h3 class="page-title">
+			               <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Questions</h3>
+		            
+                   <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Sort by Disease : </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control form-control-sm" id="sortbydisease">
+                                            <option>Category1</option>
+                                            <option>Category2</option>
+                                            <option>Category3</option>
+                                            <option>Category4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                  </div>
+       
+                <!--Start Loop-->
+               
+                
+              <div class="col-sm-12 grid-margin stretch-card">
+                   
+                     
+                      <ul class="list-arrow">
+                      
+                        <li><a href="" style="text-decoration : none;" class="text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium voluptas soluta eligendi, in, natus delectus perferendis incidunt excepturi impedit error eum explicabo sequi labore quam sint quae quasi vero esse!</a></li>
+                         <hr>
+
+                         <li><a href="" style="text-decoration : none;" class="text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium voluptas soluta eligendi, in, natus delectus perferendis incidunt excepturi impedit error eum explicabo sequi labore quam sint quae quasi vero esse!</a></li>
+                         <hr>
+                         <li><a href="" style="text-decoration : none;" class="text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium voluptas soluta eligendi, in, natus delectus perferendis incidunt excepturi impedit error eum explicabo sequi labore quam sint quae quasi vero esse!</a></li>
+                         <hr>
+                         <li><a href="" style="text-decoration : none;" class="text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium voluptas soluta eligendi, in, natus delectus perferendis incidunt excepturi impedit error eum explicabo sequi labore quam sint quae quasi vero esse!</a></li>
+                         <hr>
+                         <li><a href="" style="text-decoration : none;" class="text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium voluptas soluta eligendi, in, natus delectus perferendis incidunt excepturi impedit error eum explicabo sequi labore quam sint quae quasi vero esse!</a></li>
+                         <hr>
+                       
+                       
+                      </ul>
+                    
+              </div>
+              
+
+              
+              
+              
+
+              
+              <!--end-->
+
+              
+            </div><!-- end card body-->
+          </div><!-- end card-->
+            </div><!--col sidebar end-->
+            <div class="col-sm-4 grid-margin stretch-card">
+                   <div class="card">
+                    <div class="card-body">
+                       <h3 class="page-title mb-3">
+                        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Recent Questions </h3>
+                     
+                      <ul class="list-arrow">
+                      
+                        <li><a href="" style="text-decoration : none;" class="text-dark">Lorem</a></li>
+                         <hr>
+                      
+                       
+                      </ul>
+                    </div>
+                  </div>
+              </div><!--end news-->
+            </div><!--row end-->
+          </div>
+          <!-- content-wrapper ends -->
+          {% include "footer.html" %}
+  </body>
+</html>

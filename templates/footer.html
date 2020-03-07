@@ -1,0 +1,65 @@
+<script type="text/javascript"></script>{% load static %}
+
+
+<!-- partial:partials/_footer.html -->
+<footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="#"
+                                                                                                        target="_blank">Health Wealth</a>. All rights reserved.</span>
+        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
+                class="mdi mdi-heart text-danger"></i> by TeamZero</span>
+    </div>
+</footer>
+<!-- partial -->
+</div>
+<!-- main-panel ends -->
+</div>
+<!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+
+<!-- plugins:js -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="{% static '/assets/vendors/js/vendor.bundle.base.js' %}"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="{% static '/assets/vendors/chart.js/Chart.min.js' %}"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="{% static '/assets/js/off-canvas.js' %}"></script>
+<script src="{% static '/assets/js/hoverable-collapse.js' %}"></script>
+<script src="{% static '/assets/js/misc.js' %}"></script>
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="{% static '/assets/js/dashboard.js' %}"></script>
+<script src="{% static '/assets/js/todolist.js' %}"></script>
+<script src="{% static '/assets/js/file-upload.js' %}"></script>
+<script src="{% static '/assets/js/speechtotext.js' %}"></script>
+
+<script type="text/javascript">
+	$("#likes").click(function()
+	{
+
+		var li=$(this).val();
+		$.ajax(
+         url:'/inclike',
+         method:'POST',
+         
+
+
+
+			)
+	})
+	function count(val){
+var count = $("#count");
+console.log(count);
+
+$('val').click(function() {
+    count++;
+    $('#count').html("My current count is: "+count);
+    alert("hello");
+}
+	}
+
+</script>
+

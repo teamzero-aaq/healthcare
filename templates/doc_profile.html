@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+</head>
+<body>
+<div class="container-scroller">
+    {% if user.user_type == "Doctor" %}
+        {% include "doctor_sidebar.html" %}
+    {% endif %}
+    {% if user.user_type == "Patient" %}
+        {% include "patient_sidebar.html" %}
+    {% endif %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="badge badge-danger mb-2"
+                                  style="font-size : 20px"> {{ uprofile.name }}</span>
+
+                            <p>{{ uprofile.bio }}</p>
+                            <h6 class="card-text"><a href="#" class="text-dark text-decoration-none">
+                                <i class="mdi mdi-account-multiple-plus mdi-20px text-danger mr-2" id="follow"></i>
+                                Follow</a> <span class="mr-2 text-danger">19</span> </a><i
+                                    class="mdi mdi-trophy-variant-outline" id="badge" style="color:#FFDF00	;"></i>
+                                Bronze <i
+                                    class="mdi mdi-trophy-variant-outline ml-2" id="badge" style="color:#FFDF00  ;"></i>
+                                Level : 
+                            </h6>
+
+
+                        </div><!-- end card body-->
+                    </div><!-- end card-->
+                </div><!--col sidebar end-->
+
+                <div class="col-sm-12 mt-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="badge badge-dark mb-4" style="font-size : 15px">Experience or Tips Post</span>
+
+                            <ul class="list-arrow">
+
+                                {% for key,val in docpost.items %}
+
+                                    <li><a href="/posts/{{ key }}" style="text-decoration : none;"
+                                           class="text-dark">{{ val.title }}
+                                    </a><span class="badge badge-danger mb-4 float-right">{{ val.disease }}</span></li>
+                                    <hr>
+                                {% endfor %}
+
+
+                            </ul>
+
+
+                        </div><!-- end card body-->
+                    </div><!-- end card-->
+                </div><!--col sidebar end-->
+
+                <div class="col-sm-12 mt-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="badge badge-dark mb-4" style="font-size : 15px">Given Answers</span>
+
+                            <ul class="list-arrow">
+
+                                {% for key,val in docans.items %}
+                                    <li><a href="" style="text-decoration : none;"
+                                           class="text-dark">{{ val.question }} </a><span
+                                            class="badge badge-danger mb-4 float-right">{{ val.disease }}</span></li>
+                                    <hr>
+                                {% endfor %}
+
+
+                            </ul>
+
+
+                        </div><!-- end card body-->
+                    </div><!-- end card-->
+                </div><!--col sidebar end-->
+
+
+            </div><!--row end->
+           
+          </div>
+          <!-- content-wrapper ends -->
+            {% include "footer.html" %}
+</body>
+</html>
