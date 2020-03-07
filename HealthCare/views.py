@@ -11,6 +11,7 @@ from requests import get
 
 from . import Common
 from . import PyConfig
+from .SendMail import sendmail
 
 
 def clean(s):
@@ -204,11 +205,27 @@ def patient_viewevent(req):
 
 
 def doctor_contact(req):
-    return render(req, 'doctor_contact.html', {"user": Common.currentUser})
+    db = connect_firebase()
+
+    alldoc = db.child("users").order_by_child("user_type").equal_to("Doctor").get().val()
+    return render(req, 'doctor_contact.html', {"user": Common.currentUser, "alldoc": alldoc})
 
 
 def meditation(req):
     return render(req, 'meditation.html', {"user": Common.currentUser})
+
+
+def chatwithdoc(req, pk):
+    db = connect_firebase()
+    docd = db.child("users").child(str(pk)).get().val()
+    timestamp = datetime.timestamp(datetime.now())
+    strtimestamp = str(timestamp).replace('.', '')
+    msg = f"http://localhost:3000/chat?name=" + docd.get('name').replace(" ", "%20") + "&room=" + strtimestamp
+    sendmail(docd.get("mail"), "New Chat request from - " + Common.currentUser.get("rname"),
+             "Testing mail", msg)
+
+    return HttpResponseRedirect(
+        "http://localhost:3000/chat?name=" + Common.currentUser.get("rname") + "&room=" + strtimestamp)
 
 
 def wishlist(req):

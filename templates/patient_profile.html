@@ -100,7 +100,11 @@
                                                 <div class="col-sm-9">
                                                     <select class="form-control" name="gender" id="gender">
                                                         <option value="{{ user.gender }}" disabled selected hidden>
-                                                            Choose your Gender
+                                                            {% if user.gender %}
+                                                                {{ user.gender }}
+                                                            {% else %}
+                                                                Choose Gender
+                                                            {% endif %}
                                                         </option>
                                                         <option value="Male">Male</option>
                                                         <option value="Female">Female</option>
@@ -115,8 +119,13 @@
                                                 <label class="col-sm-3 col-form-label">Blood Group</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control" name="blood" id="blood">
-                                                        <option value="{{ user.blood }}" disabled selected hidden>Choose your blood
-                                                            group
+                                                        <option value="{{ user.blood }}" disabled selected
+                                                                hidden>
+                                                            {% if user.blood %}
+                                                                {{ user.blood }}
+                                                            {% else %}
+                                                                Choose Boold Group
+                                                            {% endif %}
                                                         </option>
                                                         <option>A RhD positive (A+)</option>
                                                         <option>A RhD negative (A-)</option>
@@ -141,7 +150,7 @@
                                                 <label class="form-control-label" for="Allergies">Allergies</label>
                                                 <input type="text" name="allergies" id="allergies"
                                                        class="form-control form-control-alternative"
-                                                       placeholder="Allergies" value="{{ user.mail }}">
+                                                       placeholder="Allergies" value="{{ user.allergies }}">
                                             </div>
                                         </div>
 
@@ -157,7 +166,7 @@
                                                 <label class="form-control-label" for="name">Name</label>
                                                 <input type="text" name="ename" id="ename"
                                                        class="form-control form-control-alternative" placeholder="Name"
-                                                       value="">
+                                                       value="{{ user.ename }}">
                                             </div>
                                         </div>
 
@@ -166,7 +175,7 @@
                                                 <label class="form-control-label" for="contact">Contact No.</label>
                                                 <input type="number" name="econtact" id="econtact"
                                                        class="form-control form-control-alternative"
-                                                       placeholder="Contact No." value="">
+                                                       placeholder="Contact No." value="{{ user.econtact }}">
                                             </div>
                                         </div>
 
@@ -178,7 +187,7 @@
                                                 <label class="form-control-label" for="relation">Relation</label>
                                                 <input type="text" name="relation" id="relation"
                                                        class="form-control form-control-alternative"
-                                                       placeholder="Enter your Relation" value="">
+                                                       placeholder="Enter your Relation" value="{{ user.relation }}">
                                             </div>
                                         </div>
 

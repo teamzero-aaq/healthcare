@@ -36,9 +36,12 @@ urlpatterns = [
     path('removewishlist', views.removewishlist),
     path('addpatientpost', views.addpatientpost),
     path('doctor_contact', views.doctor_contact),
+
     path('ask_ques/', views.ask_ques),
     path('addpatques', views.addpatques),
     url(r'^posts/(?P<pk>\d+)$', views.viewpostdetails),
+    url(r'^chatwithdoc/(?P<pk>\d+)$', views.chatwithdoc),
+
     url(r'^question/(?P<pk>\d+)$', views.viewquestiondetail),
     path('addchat', views.addchat),
     path('testing/', views.testing),

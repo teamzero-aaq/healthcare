@@ -18,29 +18,26 @@
                         </span>List of Doctors</h3>
             <div class="row">
 
+                {% for key,val in alldoc.items %}
+                    <div class="col-sm-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
 
-                <div class="col-sm-4 mb-3">
-                    <div class="card">
-                        <div class="card-body">
+                                <a href="/doc_profile/{{ key }}" style="text-decoration : none ;"
+                                   class="text-primary">
+                                    <h4 class="mb-2">{{ val.name }}</h4></a>
 
-                            <a href="/doc_profile/{{ val.docid }}" style="text-decoration : none ;"
-                               class="text-primary">
-                                <h4 class="mb-2">Doctor Name</h4></a>
-
-                            <p>Akshya Nagar 1st Block 1st
-                                Cross, Rammurthy
-                                nagar,
-                                Bangalore-560016</p>
-                            <h6 class="card-text">
-                                <a href="#" class="text-dark text-decoration-none">
-                                    <span class="badge badge-success">Chat</span></a>
-                                <span class="badge badge-danger float-right">Specialist</span></h6>
-                        </div><!-- end card body-->
-                    </div><!-- end card-->
+                                <p>{{ val.bio }}</p>
+                                <h6 class="card-text">
+                                    <a href="/chatwithdoc/{{ key }}" class="text-dark text-decoration-none">
+                                        <span class="badge badge-success">Chat</span></a>
+                                    <span class="badge badge-danger float-right">{{ val.disease }}</span></h6>
+                            </div><!-- end card body-->
+                        </div><!-- end card-->
 
 
-                </div><!--col-12  end-->
-
+                    </div><!--col-12  end-->
+                {% endfor %}
 
             </div>
         </div>
