@@ -223,6 +223,44 @@ def doctor_contact(req):
     return render(req, 'doctor_contact.html', {"user": Common.currentUser, "alldoc": alldoc})
 
 
+def stress_analysis(req):
+    return render(req, 'stress_analysis.html', {"user": Common.currentUser})
+
+
+def stress_analysis_submit(req):
+    q1 = req.POST['q1']
+    q2 = req.POST['q2']
+    q3 = req.POST['q3']
+    q4 = req.POST['q4']
+    q5 = req.POST['q5']
+    q6 = req.POST['q6']
+    q7 = req.POST['q7']
+    q8 = req.POST['q8']
+    q9 = req.POST['q9']
+    q10 = req.POST['q10']
+    db = connect_firebase()
+
+    data = {
+        "q1": q1,
+        "q2": q2,
+        "q3": q3,
+        "q4": q4,
+        "q5": q5,
+        "q6": q6,
+        "q7": q7,
+        "q8": q8,
+        "q9": q9,
+        "q10": q10,
+    }
+
+    db.child("stress_analysis").child(Common.currentUser.get("phone")).update(data)
+
+    return render(req, 'redirect.html',
+                  {"swicon": "success", "swtitle": "Done",
+                   "swmsg": "Your form has been saved successfully.Please wait for Doctor to reply",
+                   "path": "patient_dashboard"})
+
+
 def meditation(req):
     data = yt_scrape()
     print(data)

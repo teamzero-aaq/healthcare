@@ -30,302 +30,386 @@
                         <div class="card-body">
 
 
+                            <form action="stress_analysis_submit" method="post">
+                                {% csrf_token %}
+                                <table class="table table-bordered">
 
- <form action="">
-                                    <table class="table table-bordered">
+                                    <thead class="text-center">
+                                    <tr>
+                                        <th> Questions</th>
+                                        <th> Did not apply <br>to me at all</th>
+                                        <th> Applied to me to <br>some degree, or <br>some of the time.</th>
+                                        <th> Applied to me a <br>considerable degree, or <br>a good part of the time
+                                        </th>
+                                        <th> Applied to me <br> much, or most <br>of the time</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="text-center">
 
-                                      <thead class="text-center">
-                                        <tr>
-                                              <th> Questions</th>
-                                              <th> Did not apply <br>to me at all</th>
-                                              <th> Applied to me to <br>some degree, or <br>some of the time. </th>
-                                              <th> Applied to me a <br>considerable degree, or <br>a good part of the time </th>
-                                              <th> Applied to me <br> much, or most <br>of the time </th>
-                                        </tr>
-                                      </thead>
-                                      <tbody class="text-center">
+                                    <tr>
+                                        <td>I found myself <br>getting upset by <br> quite trivial things</td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" value="1" class="form-check-input" name="q1"
+                                                           id="q1"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" value="2" class="form-check-input" name="q1"
+                                                           id="q1">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" value="3" class="form-check-input" name="q1"
+                                                           id="q1"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="4" name="q1"
+                                                           id="q1">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>I was aware of <br> dryness of my mouth</td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="1" name="q2"
+                                                           id="q2"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="2" name="q2"
+                                                           id="q2">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="3" name="q2"
+                                                           id="q2"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="4" name="q2"
+                                                           id="q2">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>I couldn't seem to <br>experience any positive <br>feeling at all</td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="1" name="q3"
+                                                           id="q3"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="2" name="q3"
+                                                           id="q3">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="3" name="q3"
+                                                           id="q3"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="4" name="q3"
+                                                           id="q3">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>I experienced breathing <br>difficulty (eg, excessively <br>rapid breathing,
+                                            breathlessness
+                                            <br>in the absence of <br>physical exertion)
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="1" name="q4"
+                                                           id="q4"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" name="q4" value="2"
+                                                           id="q4">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="3" name="q4"
+                                                           id="q4"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" name="q4" value="4"
+                                                           id="q4">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>I just couldn't <br>seem to get going</td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" name="q5" value="1"
+                                                           id="q5"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" name="q5" value="2"
+                                                           id="q5">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" name="q5" value="3"
+                                                           id="q5"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" name="q5" value="4"
+                                                           id="q5">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>I tended to over-react <br> to situations</td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="1" name="q6"
+                                                           id="q6"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="2" name="q6"
+                                                           id="q6">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="3" name="q6"
+                                                           id="q6"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="4" name="q6"
+                                                           id="q6">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>I had a feeling of shakiness <br> (eg, legs going to give way)</td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="1" name="q7"
+                                                           id="q7"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="2" name="q7"
+                                                           id="q7">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="3" name="q7"
+                                                           id="q7"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="4" name="q7"
+                                                           id="q7">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>I found it difficult <br> to relax</td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="1" name="q8"
+                                                           id="q8"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="2" name="q8"
+                                                           id="q8">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="3" name="q8"
+                                                           id="q8"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="4" name="q8"
+                                                           id="q8">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>I found myself in situations <br>that made me so anxious <br>I was most
+                                            relieved when
+                                            <br>they ended
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="1" name="q9"
+                                                           id="q9"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="2" name="q9"
+                                                           id="q9">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="3" name="q9"
+                                                           id="q9"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="4" name="q9"
+                                                           id="q9">
+                                                    .</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>I felt that I had nothing <br>to look forward to</td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="1" name="q10"
+                                                           id="q10"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="2" name="q10"
+                                                           id="q10"> .</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="3" name="q10"
+                                                           id="q10"> .
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label text-white">
+                                                    <input type="radio" class="form-check-input" value="4" name="q10"
+                                                           id="q10"> .</label>
+                                            </div>
+                                        </td>
+                                    </tr>
 
-                                        <tr>
-                                          <td>I found myself <br>getting upset by <br> quite trivial things </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q1" id="q1">  . </label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q1" id="q1">   .</label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q1" id="q1"> . </label>
-                                            </div>
-                                          </td>
-                                            <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q1" id="q1"> .</label>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                       <tr>
-                                          <td>I was aware of <br> dryness of my mouth </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q2" id="q2">  . </label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q2" id="q2">   .</label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q2" id="q2"> . </label>
-                                            </div>
-                                          </td>
-                                            <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q2" id="q2"> .</label>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                       <tr>
-                                          <td>I couldn't seem to <br>experience any positive <br>feeling at all </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q3" id="q3">  . </label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q3" id="q3">   .</label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q3" id="q3"> . </label>
-                                            </div>
-                                          </td>
-                                            <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q3" id="q3"> .</label>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                      <tr>
-                                          <td>I experienced breathing <br>difficulty (eg, excessively <br>rapid breathing, breathlessness
-                                              <br>in the absence of <br>physical exertion)</td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q4" id="q4">  . </label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q4" id="q4">   .</label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q4" id="q4"> . </label>
-                                            </div>
-                                          </td>
-                                            <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q4" id="q4"> .</label>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                      <tr>
-                                          <td>I just couldn't <br>seem to get going</td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q5" id="q5">  . </label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q5" id="q5">   .</label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q5" id="q5"> . </label>
-                                            </div>
-                                          </td>
-                                            <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q5" id="q5"> .</label>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                      <tr>
-                                          <td>I tended to over-react <br> to situations</td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q6" id="q6">  . </label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q6" id="q6">   .</label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q6" id="q6"> . </label>
-                                            </div>
-                                          </td>
-                                            <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q6" id="q6"> .</label>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                       <tr>
-                                          <td>I had a feeling of shakiness <br> (eg, legs going to give way)</td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q7" id="q7">  . </label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q7" id="q7">   .</label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q7" id="q7"> . </label>
-                                            </div>
-                                          </td>
-                                            <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q7" id="q7"> .</label>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                       <tr>
-                                          <td>I found it difficult <br> to relax</td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q8" id="q8">  . </label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q8" id="q8">   .</label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q8" id="q8"> . </label>
-                                            </div>
-                                          </td>
-                                            <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q8" id="q8"> .</label>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                       <tr>
-                                          <td>I found myself in situations <br>that made me so anxious <br>I was most relieved when
-                                              <br>they ended</td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q9" id="q9">  . </label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q9" id="q9">   .</label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q9" id="q9"> . </label>
-                                            </div>
-                                          </td>
-                                            <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q9" id="q9"> .</label>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                       <tr>
-                                          <td>I felt that I had nothing <br>to look forward to</td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q10" id="q10">  . </label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q10" id="q10">   .</label>
-                                            </div>
-                                          </td>
-                                          <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q10" id="q10"> . </label>
-                                            </div>
-                                          </td>
-                                            <td>
-                                              <div class="form-check form-check-primary">
-                                              <label class="form-check-label text-white">
-                                                <input type="radio" class="form-check-input" name="q10" id="q10"> .</label>
-                                            </div>
-                                          </td>
-                                        </tr>
+
+                                    </tbody>
 
 
-
-                                      </tbody>
-
-
-                                        </table>
-     <a href="#" class="form-link"><button type="submit" class="btn btn-success mt-4 float-right"> Submit</button></a>
-                                    </form>
+                                </table>
+                                <a href="#" class="form-link">
+                                    <button type="submit" class="btn btn-success mt-4 float-right"> Submit</button>
+                                </a>
+                            </form>
 
                         </div>
                     </div>

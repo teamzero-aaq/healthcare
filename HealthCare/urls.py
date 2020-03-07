@@ -36,6 +36,8 @@ urlpatterns = [
     path('removewishlist', views.removewishlist),
     path('addpatientpost', views.addpatientpost),
     path('doctor_contact', views.doctor_contact),
+    path('stress_analysis', views.stress_analysis),
+    path('stress_analysis_submit', views.stress_analysis_submit),
 
     path('ask_ques/', views.ask_ques),
     path('addpatques', views.addpatques),

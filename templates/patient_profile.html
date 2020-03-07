@@ -99,7 +99,7 @@
                                                 <label class="col-sm-3 col-form-label">Gender</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control" name="gender" id="gender">
-                                                        <option value="{{ user.gender }}" disabled selected hidden>
+                                                        <option value="{{ user.gender }}" selected hidden>
                                                             {% if user.gender %}
                                                                 {{ user.gender }}
                                                             {% else %}
@@ -119,7 +119,7 @@
                                                 <label class="col-sm-3 col-form-label">Blood Group</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control" name="blood" id="blood">
-                                                        <option value="{{ user.blood }}" disabled selected
+                                                        <option value="{{ user.blood }}" selected
                                                                 hidden>
                                                             {% if user.blood %}
                                                                 {{ user.blood }}
