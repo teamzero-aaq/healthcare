@@ -7,15 +7,13 @@ import tensorflow.keras.metrics as Metrics
 import tensorflow.keras.utils as Utils
 from keras.utils.vis_utils import model_to_dot
 import os
-import matplotlib.pyplot as plot
 import cv2
 import numpy as np
 from sklearn.utils import shuffle
 from sklearn.metrics import confusion_matrix as CM
 from random import randint
-from IPython.display import SVG
 from keras.models import model_from_json
-import matplotlib.gridspec as gridspec
+
 
 
 
@@ -40,7 +38,7 @@ def get_images(directory):
         
         for image_file in os.listdir(directory+labels): #Extracting the file name of the image from Class Label folder
             image = cv2.imread(directory+labels+r'/'+image_file) #Reading the image (OpenCV)
-            image = cv2.resize(image,(150,150)) #Resize the image, Some images are different sizes. (Resizing is very Important)
+            image = cv2.resize(image,(125,125)) #Resize the image, Some images are different sizes. (Resizing is very Important)
             Images.append(image)
             Labels.append(label)
     
@@ -51,7 +49,7 @@ def get_classlabel(class_code):
     
     return labels[class_code]
 
-Images, Labels = get_images('C:/Users/saurabh/Desktop/img_train/img_train/') #Extract the training images from the folders.
+Images, Labels = get_images('seg_train/seg_train/') #Extract the training images from the folders.
 
 
 Images = np.array(Images) #converting the list of images to numpy array.
@@ -59,7 +57,7 @@ Labels = np.array(Labels)
 
 model = Models.Sequential()
 
-model.add(Layers.Conv2D(200,kernel_size=(3,3),activation='relu',input_shape=(150,150,3)))
+model.add(Layers.Conv2D(200,kernel_size=(3,3),activation='relu',input_shape=(125,125,3)))
 model.add(Layers.Conv2D(180,kernel_size=(3,3),activation='relu'))
 model.add(Layers.MaxPool2D(5,5))
 model.add(Layers.Conv2D(180,kernel_size=(3,3),activation='relu'))
@@ -77,9 +75,9 @@ model.add(Layers.Dense(6,activation='softmax'))
 model.compile(optimizer=Optimizer.Adam(lr=0.0001),loss='sparse_categorical_crossentropy',metrics=['accuracy'])
 
 model.summary()
-trained = model.fit(Images,Labels,epochs=15,validation_split=0.30)
+trained = model.fit(Images,Labels,epochs=10,validation_split=0.30)
 model_json = model.to_json()
-with open("C:/Users/saurabh/Desktop/demo.json","w") as json_file:
+with open("demo.json","w") as json_file:
 	json_file.write(model_json)
 
-model.save_weights("C:/Users/saurabh/Desktop/model.h5")
+model.save_weights("model.h5")

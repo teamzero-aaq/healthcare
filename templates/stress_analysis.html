@@ -3,8 +3,6 @@
 <html lang="en">
 <head>
     {% include "html_head.html" %}
-
-
 </head>
 <body>
 
@@ -23,7 +21,7 @@
                                     <h3 class="page-title">
 			                <span class="page-title-icon bg-gradient-primary text-white mr-2">
 			                  <i class="mdi mdi-lightbulb"></i>
-			                </span> Profile </h3>
+			                </span> Take the stress test and measure your stress levels</h3>
                                 </div>
 
                             </div>
@@ -31,152 +29,304 @@
 
                         <div class="card-body">
 
-                            <div class="">
-                                <h6 class="heading-small text-muted mb-4">User Information</h6>
-                                <div class="row">
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Name</label>
-                                            <input type="text" name="pname" id="pname"
-                                                   class="form-control form-control-alternative" placeholder="Name"
-                                                   value="{{ user.name }}">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-email">Email
-                                                address</label>
-                                            <input type="text" name="email" id="email"
-                                                   class="form-control form-control-alternative"
-                                                   value="{{ user.mail }}" disabled placeholder="name@example.com">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-contact">Contact</label>
-                                            <input type="text" name="pcontact" id="pcontact"
-                                                   class="form-control form-control-alternative" disabled
-                                                   placeholder="Enter contact" value="{{ user.phone }}">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Specialist</label>
-                                            <div class="col-sm-9">
-                                                <select class="form-control" name="specialist" id="specialist">
-                                                    <option value="" disabled selected hidden>Choose your blood
-                                                        group
-                                                    </option>
-                                                    <option value="">A RhD positive (A+)</option>
 
 
-                                                </select>
+ <form action="">
+                                    <table class="table table-bordered">
+
+                                      <thead class="text-center">
+                                        <tr>
+                                              <th> Questions</th>
+                                              <th> Did not apply <br>to me at all</th>
+                                              <th> Applied to me to <br>some degree, or <br>some of the time. </th>
+                                              <th> Applied to me a <br>considerable degree, or <br>a good part of the time </th>
+                                              <th> Applied to me <br> much, or most <br>of the time </th>
+                                        </tr>
+                                      </thead>
+                                      <tbody class="text-center">
+
+                                        <tr>
+                                          <td>I found myself <br>getting upset by <br> quite trivial things </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q1" id="q1">  . </label>
                                             </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Gender</label>
-                                            <div class="col-sm-9">
-                                                <select class="form-control" name="gender" id="gender">
-                                                    <option value="" disabled selected hidden>Choose your Gender
-                                                    </option>
-                                                    <option value="Male">Male</option>
-                                                    <option value="Female">Female</option>
-                                                    <option value="other">Other</option>
-                                                </select>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q1" id="q1">   .</label>
                                             </div>
-                                        </div>
-                                    </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q1" id="q1"> . </label>
+                                            </div>
+                                          </td>
+                                            <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q1" id="q1"> .</label>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                       <tr>
+                                          <td>I was aware of <br> dryness of my mouth </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q2" id="q2">  . </label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q2" id="q2">   .</label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q2" id="q2"> . </label>
+                                            </div>
+                                          </td>
+                                            <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q2" id="q2"> .</label>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                       <tr>
+                                          <td>I couldn't seem to <br>experience any positive <br>feeling at all </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q3" id="q3">  . </label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q3" id="q3">   .</label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q3" id="q3"> . </label>
+                                            </div>
+                                          </td>
+                                            <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q3" id="q3"> .</label>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      <tr>
+                                          <td>I experienced breathing <br>difficulty (eg, excessively <br>rapid breathing, breathlessness
+                                              <br>in the absence of <br>physical exertion)</td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q4" id="q4">  . </label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q4" id="q4">   .</label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q4" id="q4"> . </label>
+                                            </div>
+                                          </td>
+                                            <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q4" id="q4"> .</label>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      <tr>
+                                          <td>I just couldn't <br>seem to get going</td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q5" id="q5">  . </label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q5" id="q5">   .</label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q5" id="q5"> . </label>
+                                            </div>
+                                          </td>
+                                            <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q5" id="q5"> .</label>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      <tr>
+                                          <td>I tended to over-react <br> to situations</td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q6" id="q6">  . </label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q6" id="q6">   .</label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q6" id="q6"> . </label>
+                                            </div>
+                                          </td>
+                                            <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q6" id="q6"> .</label>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                       <tr>
+                                          <td>I had a feeling of shakiness <br> (eg, legs going to give way)</td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q7" id="q7">  . </label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q7" id="q7">   .</label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q7" id="q7"> . </label>
+                                            </div>
+                                          </td>
+                                            <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q7" id="q7"> .</label>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                       <tr>
+                                          <td>I found it difficult <br> to relax</td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q8" id="q8">  . </label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q8" id="q8">   .</label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q8" id="q8"> . </label>
+                                            </div>
+                                          </td>
+                                            <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q8" id="q8"> .</label>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                       <tr>
+                                          <td>I found myself in situations <br>that made me so anxious <br>I was most relieved when
+                                              <br>they ended</td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q9" id="q9">  . </label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q9" id="q9">   .</label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q9" id="q9"> . </label>
+                                            </div>
+                                          </td>
+                                            <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q9" id="q9"> .</label>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                       <tr>
+                                          <td>I felt that I had nothing <br>to look forward to</td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q10" id="q10">  . </label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q10" id="q10">   .</label>
+                                            </div>
+                                          </td>
+                                          <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q10" id="q10"> . </label>
+                                            </div>
+                                          </td>
+                                            <td>
+                                              <div class="form-check form-check-primary">
+                                              <label class="form-check-label text-white">
+                                                <input type="radio" class="form-check-input" name="q10" id="q10"> .</label>
+                                            </div>
+                                          </td>
+                                        </tr>
 
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="age">Age</label>
-                                            <input type="number" name="age" id="age"
-                                                   class="form-control form-control-alternative"
-                                                   placeholder="Age" value="{{ user.mail }}">
-                                        </div>
-                                    </div>
 
 
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-lg-12">
-                                        <h6 class="heading-small text-muted mb-4">About Me</h6>
-                                        <div class="form-group">
-
-                                    <textarea class="form-control" name="about" id="about" rows="4"
-                                              placeholder="About yourself... "></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-
-                                <h6 class="heading-small text-muted mb-4">Work Place</h6>
-                                <div class="row">
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Name of
-                                                Hospital</label>
-                                            <input type="text" name="hname" id="hname"
-                                                   class="form-control form-control-alternative"
-                                                   placeholder="Name of Hospital"
-                                                   value="{{ user.name }}">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-email">Telephone No.</label>
-                                            <input type="text" name="hphone" id="hphone"
-                                                   class="form-control form-control-alternative"
-                                                   placeholder="Telephone No." value="{{ user.mail }}">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-contact">Open Time</label>
-                                            <input type="time" name="stime" id="stime"
-                                                   class="form-control form-control-alternative"
-                                                   placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-contact">Close Time</label>
-                                            <input type="time" name="ctime" id="ctime"
-                                                   class="form-control form-control-alternative"
-                                                   placeholder="">
-                                        </div>
-                                    </div>
+                                      </tbody>
 
 
-                                </div>
+                                        </table>
+     <a href="#" class="form-link"><button type="submit" class="btn btn-success mt-4 float-right"> Submit</button></a>
+                                    </form>
 
-
-                                <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                            </div>
-
-
-                            </form>
                         </div>
                     </div>
                 </div>
