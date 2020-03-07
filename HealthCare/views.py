@@ -164,6 +164,10 @@ def patient_dashboard(req):
     return render(req, 'patient_dashboard.html', {"posts": posts, "user": Common.currentUser, "news": news_scrape()})
 
 
+def play_games(req):
+    return render(req, 'games.html', {"user": Common.currentUser})
+
+
 def viewpostdetails(req, pk):
     db = connect_firebase()
     posts = db.child("patient_post").child(str(pk)).get().val()
@@ -342,7 +346,8 @@ def viewdocprofile(req, pk):
         tmpdata = dict(tmpdata)
         docans.update({i: tmpdata})
     return render(req, 'doc_profile.html',
-                  {"user": Common.currentUser, "uprofile": usr, "docpost": docpost, "docans": docans})
+                  {"user": Common.currentUser, "uprofile": usr, "dockey": str(pk), "docpost": docpost,
+                   "docans": docans})
 
 
 def docgiveans(req):

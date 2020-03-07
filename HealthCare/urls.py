@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', views.admin),
     path('verifyuser', views.verifyuser),
     path('patient_dashboard/', views.patient_dashboard),
+    path('games/', views.play_games),
     path('patient_profile/', views.patient_profile),
     path('savepatient_profile', views.savepatient_profile),
     path('patient_viewevent/', views.patient_viewevent),
