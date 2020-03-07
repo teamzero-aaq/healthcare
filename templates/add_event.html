@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+
+</head>
+<body>
+<div class="container-scroller">
+
+    {% include "doctor_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+
+            <div class="row">
+                <div class="col-sm-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Button trigger modal -->
+
+                            <h3 class="page-title">
+			               <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Add New Events
+
+                            </h3>
+
+                            <form class="forms-sample mt-4" action="" method="post">
+
+
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Event Name</label>
+                                            <input type="text" name="ename" id="ename"
+                                                   class="form-control form-control-alternative"
+                                                   placeholder="Name of Event"
+                                                   value="{{ user.name }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Date of Event</label>
+                                            <input type="date" name="edate" id="edate"
+                                                   class="form-control form-control-alternative">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Time of Event</label>
+                                            <input type="date" name="eadate" id="edate"
+                                                   class="form-control form-control-alternative">
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Event
+                                                Location</label>
+                                            <textarea class="form-control" id="location" name="location" rows="4"
+                                                      placeholder="Enter Event Location"></textarea>
+                                        </div>
+                                        {% csrf_token %}
+                                        <button type="submit"
+                                                class="btn btn-gradient-success mr-2 btn-sm float-right mb-4">
+                                            Post
+                                        </button>
+                                    </div>
+
+
+                                </div>
+
+                            </form>
+
+
+                            <!--Start Loop-->
+
+                            {% for key,val in all_q.items %}
+                                <div class="col-sm-12 grid-margin stretch-card mb-0">
+
+
+                                    <ul class="list-arrow">
+
+                                        <li><a href="/question/{{ key }}" style="text-decoration : none;"
+                                               class="text-dark">{{ val.question }}</a></li>
+                                        <hr>
+
+
+                                    </ul>
+
+                                </div>
+
+                            {% endfor %}
+                            <!--end-->
+
+
+                        </div><!-- end card body-->
+                    </div><!-- end card-->
+                </div><!--col sidebar end-->
+
+            </div><!--row end-->
+        </div>
+        <!-- content-wrapper ends -->
+        {% include "footer.html" %}
+</body>
+</html>
