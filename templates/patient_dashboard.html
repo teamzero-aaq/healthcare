@@ -21,8 +21,41 @@
                         <div class="carousel slide" data-ride="carousel" id="carouselContent">
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active text-center p-4">
-                                    <p>lorem ipsum (imagine longer text)</p>
+                                    <p>
+                                        "True silence is the rest of the mind, and is to the spirit what sleep is to the
+                                        body, nourishment and refreshment."</p>
                                 </div>
+                                <div class="carousel-item text-center p-4">
+                                    <p>
+                                        “The art of medicine consists of amusing the patient while nature cures the
+                                        disease.”
+                                    </p>
+                                </div>
+                                <div class="carousel-item text-center p-4">
+                                    <p>
+                                        "If you don't think healthcare is about power, you haven't been paying
+                                        attention"
+                                    </p>
+                                </div>
+                                <div class="carousel-item text-center p-4">
+                                    <p>
+                                        "It is health that is real wealth and not pieces of gold and silver."
+                                    </p>
+                                </div>
+                                <div class="carousel-item text-center p-4">
+                                    <p>
+                                        "Keep your vitality. A life without health is like a river without water."
+                                    </p>
+                                </div>
+
+                                <div class="carousel-item text-center p-4">
+                                    <p>
+                                        "Three things in life – your health, your mission, and the people you love.
+                                        That’s it."
+                                    </p>
+                                </div>
+
+
                                 <div class="carousel-item text-center p-4">
 
                                     <p>lorem ipsum (imagine longer text)</p>
@@ -183,5 +216,23 @@
         </div>
         <!-- content-wrapper ends -->
         {% include "footer.html" %}
+        <script type="text/javascript">
+            /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+            (function (d, m) {
+                var kommunicateSettings = {
+                    "appId": "2c3f4a17f1cc574f6911f2180baa242cb",
+                    "popupWidget": true,
+                    "automaticChatOpenOnNavigation": true
+                };
+                var s = document.createElement("script");
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+                var h = document.getElementsByTagName("head")[0];
+                h.appendChild(s);
+                window.kommunicate = m;
+                m._globals = kommunicateSettings;
+            })(document, window.kommunicate || {});
+        </script>
 </body>
 </html>

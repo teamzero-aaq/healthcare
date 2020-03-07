@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="card-body">
-                            <form action="" method="POST">
+                            <form action="/savepatient_profile" method="POST">
                                 {% csrf_token %}
                                 <div class="pl-lg-4">
                                     <h6 class="heading-small text-muted mb-4">User Information</h6>
@@ -51,7 +51,7 @@
                                                     address</label>
                                                 <input type="text" name="email" id="email"
                                                        class="form-control form-control-alternative"
-                                                       placeholder="name@example.com" value="{{ user.mail }}">
+                                                       placeholder="name@example.com" value="{{ user.mail }}" disabled>
                                             </div>
                                         </div>
 
@@ -63,7 +63,7 @@
                                                 <label class="form-control-label" for="input-contact">Contact</label>
                                                 <input type="text" name="pcontact" id="pcontact"
                                                        class="form-control form-control-alternative"
-                                                       placeholder="Enter contact" value="{{ user.phone }}">
+                                                       placeholder="Enter contact" value="{{ user.phone }}" disabled>
                                             </div>
                                         </div>
 
@@ -78,7 +78,7 @@
                                                 <label class="form-control-label" for="age">Age</label>
                                                 <input type="number" name="age" id="age"
                                                        class="form-control form-control-alternative" placeholder="Age"
-                                                       value="{{ user.name }}">
+                                                       value="{{ user.age }}">
                                             </div>
                                         </div>
 
@@ -87,7 +87,7 @@
                                                 <label class="form-control-label" for="height">Height</label>
                                                 <input type="text" name="height" id="height"
                                                        class="form-control form-control-alternative"
-                                                       placeholder="name@example.com" value="{{ user.mail }}">
+                                                       placeholder="name@example.com" value="{{ user.height }}">
                                             </div>
                                         </div>
 
@@ -99,7 +99,8 @@
                                                 <label class="col-sm-3 col-form-label">Gender</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control" name="gender" id="gender">
-                                                        <option value="" disabled selected hidden>Choose your Gender
+                                                        <option value="{{ user.gender }}" disabled selected hidden>
+                                                            Choose your Gender
                                                         </option>
                                                         <option value="Male">Male</option>
                                                         <option value="Female">Female</option>
@@ -114,7 +115,7 @@
                                                 <label class="col-sm-3 col-form-label">Blood Group</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control" name="blood" id="blood">
-                                                        <option value="" disabled selected hidden>Choose your blood
+                                                        <option value="{{ user.blood }}" disabled selected hidden>Choose your blood
                                                             group
                                                         </option>
                                                         <option>A RhD positive (A+)</option>

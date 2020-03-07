@@ -170,7 +170,46 @@ def viewquestiondetail(req, pk):
 
 
 def patient_profile(req):
+    db=connect_firebase()
+    Common.currentUser=db.child("users").child(Common.currentUser.get("phone")).get().val()
+
+
     return render(req, 'patient_profile.html', {"user": Common.currentUser})
+
+
+def savepatient_profile(req):
+    name = req.POST['pname']
+    age = req.POST['age']
+    height = req.POST['height']
+    gender = req.POST['gender']
+    blood = req.POST['blood']
+    allergies = req.POST['allergies']
+    ename = req.POST['ename']
+    econtact = req.POST['econtact']
+    relation = req.POST['relation']
+
+    db=connect_firebase()
+    data = {
+        "ename":ename,"age": age, "height": height, "gender": gender,"blood":blood,
+        "allergies":allergies,"econtact":econtact,"relation":relation,"name":name
+
+    }
+
+    db.child("users").child(Common.currentUser.get("phone")).update(data)
+
+    return HttpResponseRedirect('/patient_dashboard')
+
+
+def patient_viewevent(req):
+    return render(req, 'event.html', {"user": Common.currentUser})
+
+
+def doctor_contact(req):
+    return render(req, 'doctor_contact.html', {"user": Common.currentUser})
+
+
+def meditation(req):
+    return render(req, 'meditation.html', {"user": Common.currentUser})
 
 
 def wishlist(req):
