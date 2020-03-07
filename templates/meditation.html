@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+
+</head>
+<body>
+<div class="container-scroller">
+
+    {% include "patient_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <h3 class="page-title mb-4">
+			               <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span>Stress Relief and Meditation Videos</h3>
+            <div class="row">
+                <div class="col-sm-4 mb-3">
+                    <div class="card">
+
+                        <iframe width="350" height="200" src="https://www.youtube.com/embed/5ctbvkAMQO4"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div><!-- end card-->
+                </div><!--col-4  end-->
+
+                <div class="col-sm-4 mb-3">
+                    <div class="card">
+
+                        <iframe width="350" height="200" src="https://www.youtube.com/embed/5ctbvkAMQO4"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div><!-- end card-->
+                </div><!--col-4  end-->
+
+                <div class="col-sm-4 mb-3">
+                    <div class="card">
+
+                        <iframe width="350" height="200" src="https://www.youtube.com/embed/5ctbvkAMQO4"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div><!-- end card-->
+                </div><!--col-4  end-->
+
+
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        {% include "footer.html" %}
+</body>
+</html>
