@@ -24,7 +24,7 @@
                                 frameborder="0"
 
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                pyth                allowfullscreen></iframe>
+                                allowfullscreen></iframe>
                     </div><!-- end card-->
                 </div><!--col-4  end-->
 
@@ -37,16 +37,18 @@
                                 allowfullscreen></iframe>
                     </div><!-- end card-->
                 </div><!--col-4  end-->
-                <div class="col-sm-4 mb-3">
-                    <div class="card">
 
-                        <iframe src="https://www.youtube.com/embed/5ctbvkAMQO4"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                    </div><!-- end card-->
-                </div><!--col-4  end-->
+                {% for i in youtube %}
+                    <div class="col-sm-4 mb-3">
+                        <div class="card">
 
+                            <iframe src="https://www.youtube.com/embed/{{ i }}"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                        </div><!-- end card-->
+                    </div><!--col-4  end-->
+                {% endfor %}
 
 
             </div>

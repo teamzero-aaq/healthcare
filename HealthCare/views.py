@@ -5,13 +5,14 @@ from datetime import datetime, date
 
 import pyrebase
 from bs4 import BeautifulSoup
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from requests import get
 
 from . import Common
 from . import PyConfig
 from .SendMail import sendmail
+from .clean_code import DecisionTree
 
 
 def clean(s):
@@ -22,13 +23,24 @@ def clean(s):
     return s
 
 
+def testingdd(req):
+    str = DecisionTree('back_pain', 'malaise', 'dizziness', 'puffy_face_and_eyes', 'loss_of_smell')
+    return HttpResponse('<h1>' + str + '</h1>')
+
+
 def yt_scrape():
     r = get('https://www.youtube.com/playlist?list=PLui6Eyny-Uzwzd-9fi_cmhz3UW9gS1raf')
     page = r.text
     soup = BeautifulSoup(page, 'html.parser')
     res = soup.find_all('a', {'class': 'pl-video-title-link'})
+    data = []
     for l in res:
-        print("https://www.youtube.com" + l.get("href"))
+        link = l.get("href")
+        # /watch?v=GLy2rYHwUqY
+
+        data.append(link[9:20])
+
+    return data
 
 
 def news_scrape():
@@ -212,7 +224,9 @@ def doctor_contact(req):
 
 
 def meditation(req):
-    return render(req, 'meditation.html', {"user": Common.currentUser})
+    data = yt_scrape()
+    print(data)
+    return render(req, 'meditation.html', {"user": Common.currentUser, "youtube": data})
 
 
 def chatwithdoc(req, pk):
@@ -337,7 +351,8 @@ def doctor_dashboard(req):
         all_recq = collections.OrderedDict(reversed(list(all_recq.items())))
         disease = db.child("disease").get().val()
         return render(req, 'doctor_dashboard.html',
-                      {"user": Common.currentUser, "all_q": all_q, "disease": disease, "all_recq": all_recq, "news": news_scrape()})
+                      {"user": Common.currentUser, "all_q": all_q, "disease": disease, "all_recq": all_recq,
+                       "news": news_scrape()})
     else:
         return HttpResponseRedirect("/login")
 
