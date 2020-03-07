@@ -63,7 +63,7 @@ def login(req):
 
 
 def test(req):
-    return render(req, 'add_event.html', {})
+    return render(req, 'stress_analysis.html', {})
 
 
 def testing(req):
@@ -170,9 +170,8 @@ def viewquestiondetail(req, pk):
 
 
 def patient_profile(req):
-    db=connect_firebase()
-    Common.currentUser=db.child("users").child(Common.currentUser.get("phone")).get().val()
-
+    db = connect_firebase()
+    Common.currentUser = db.child("users").child(Common.currentUser.get("phone")).get().val()
 
     return render(req, 'patient_profile.html', {"user": Common.currentUser})
 
@@ -188,10 +187,10 @@ def savepatient_profile(req):
     econtact = req.POST['econtact']
     relation = req.POST['relation']
 
-    db=connect_firebase()
+    db = connect_firebase()
     data = {
-        "ename":ename,"age": age, "height": height, "gender": gender,"blood":blood,
-        "allergies":allergies,"econtact":econtact,"relation":relation,"name":name
+        "ename": ename, "age": age, "height": height, "gender": gender, "blood": blood,
+        "allergies": allergies, "econtact": econtact, "relation": relation, "name": name
 
     }
 

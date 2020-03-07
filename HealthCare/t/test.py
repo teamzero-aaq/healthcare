@@ -1,151 +1,64 @@
-from __future__ import print_function
+import cv2
+import numpy as np
+from keras.models import load_model
+from keras.preprocessing.image import img_to_array
 
-from keras.layers import Conv2D, MaxPooling2D
-from keras.layers import Dense, Dropout, Activation, Flatten, BatchNormalization
-from keras.models import Sequential
-from keras.preprocessing.image import ImageDataGenerator
+face_classifier = cv2.CascadeClassifier(
+    'DeepLearningStuff/EmotionClassification/haarcascade_frontalface_default.xml')
+classifier = load_model('DeepLearningStuff/EmotionClassification/Emotion_little_vgg.h5')
 
-num_classes = 5
-img_rows, img_cols = 48, 49
-batch_size = 32
+class_labels = ['Angry', 'Happy', 'Neutral', 'Sad', 'Surprise']
 
-train_data_dir = 'DeepLearningStuff/EmotionClassification/fer2013/fer2013/train'
-validation_data_dir = 'DeepLearningStuff/EmotionClassification/fer2013/fer2013/validation'
-# train_data_dir = 'HealthCare/t/DeepLearningStuff/EmotionClassification/fer2013/fer2013/train'
-# validation_data_dir = 'HealthCare/t/DeepLearningStuff/EmotionClassification/fer2013/fer2013/validation'
+# def face_detector(img):
+#     # Convert image to grayscale
+#     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+#     faces = face_classifier.detectMultiScale(gray,1.3,5)
+#     if faces is ():
+#         return (0,0,0,0),np.zeros((48,48),np.uint8),img
 
-train_datagen = ImageDataGenerator(
-    rescale=1. / 255,
-    rotation_range=30,
-    shear_range=0.3,
-    zoom_range=0.3,
-    width_shift_range=0.4,
-    height_shift_range=0.4,
-    horizontal_flip=True,
-    fill_mode='nearest')
+#     for (x,y,w,h) in faces:
+#         cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+#         roi_gray = gray[y:y+h,x:x+w]
 
-validation_datagen = ImageDataGenerator(rescale=1. / 255)
+#     try:
+#         roi_gray = cv2.resize(roi_gray,(48,48),interpolation=cv2.INTER_AREA)
+#     except:
+#         return (x,w,y,h),np.zeros((48,48),np.uint8),img
+#     return (x,w,y,h),roi_gray,img
 
-train_generator = train_datagen.flow_from_directory(
-    train_data_dir,
-    color_mode='grayscale',
-    target_size=(img_rows, img_cols),
-    batch_size=batch_size,
-    class_mode='categorical',
-    shuffle=True)
 
-validation_generator = validation_datagen.flow_from_directory(
-    validation_data_dir,
-    color_mode='grayscale',
-    target_size=(img_rows, img_cols),
-    batch_size=batch_size,
-    class_mode='categorical',
-    shuffle=True)
+cap = cv2.VideoCapture(0)
 
-model = Sequential()
+while True:
+    # Grab a single frame of video
+    ret, frame = cap.read()
+    labels = []
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    faces = face_classifier.detectMultiScale(gray, 1.3, 5)
 
-# Block-1
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        roi_gray = gray[y:y + h, x:x + w]
+        roi_gray = cv2.resize(roi_gray, (48, 48), interpolation=cv2.INTER_AREA)
+        # rect,face,image = face_detector(frame)
 
-model.add(Conv2D(32, (3, 3), padding='same', kernel_initializer='he_normal', input_shape=(img_rows, img_cols, 1)))
-model.add(Activation('elu'))
-model.add(BatchNormalization())
-model.add(Conv2D(32, (3, 3), padding='same', kernel_initializer='he_normal', input_shape=(img_rows, img_cols, 1)))
-model.add(Activation('elu'))
-model.add(BatchNormalization())
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.2))
+        if np.sum([roi_gray]) != 0:
+            roi = roi_gray.astype('float') / 255.0
+            roi = img_to_array(roi)
+            roi = np.expand_dims(roi, axis=0)
 
-# Block-2
+            # make a prediction on the ROI, then lookup the class
 
-model.add(Conv2D(64, (3, 3), padding='same', kernel_initializer='he_normal'))
-model.add(Activation('elu'))
-model.add(BatchNormalization())
-model.add(Conv2D(64, (3, 3), padding='same', kernel_initializer='he_normal'))
-model.add(Activation('elu'))
-model.add(BatchNormalization())
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.2))
+            preds = classifier.predict(roi)[0]
+            label = class_labels[preds.argmax()]
+            label_position = (x, y)
+            cv2.putText(frame, label, label_position, cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 3)
+        else:
+            cv2.putText(frame, 'No Face Found', (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 3)
+    cv2.imshow('Emotion Detector', frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
-# Block-3
+cap.release()
+cv2.destroyAllWindows()
 
-model.add(Conv2D(128, (3, 3), padding='same', kernel_initializer='he_normal'))
-model.add(Activation('elu'))
-model.add(BatchNormalization())
-model.add(Conv2D(128, (3, 3), padding='same', kernel_initializer='he_normal'))
-model.add(Activation('elu'))
-model.add(BatchNormalization())
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.2))
-
-# Block-4
-
-model.add(Conv2D(256, (3, 3), padding='same', kernel_initializer='he_normal'))
-model.add(Activation('elu'))
-model.add(BatchNormalization())
-model.add(Conv2D(256, (3, 3), padding='same', kernel_initializer='he_normal'))
-model.add(Activation('elu'))
-model.add(BatchNormalization())
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.2))
-
-# Block-5
-
-model.add(Flatten())
-model.add(Dense(64, kernel_initializer='he_normal'))
-model.add(Activation('elu'))
-model.add(BatchNormalization())
-model.add(Dropout(0.5))
-
-# Block-6
-
-model.add(Dense(64, kernel_initializer='he_normal'))
-model.add(Activation('elu'))
-model.add(BatchNormalization())
-model.add(Dropout(0.5))
-
-# Block-7
-
-model.add(Dense(num_classes, kernel_initializer='he_normal'))
-model.add(Activation('softmax'))
-
-print(model.summary())
-
-from keras.optimizers import Adam
-from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
-
-checkpoint = ModelCheckpoint('Emotion_little_vgg.h5',
-                             monitor='val_loss',
-                             mode='min',
-                             save_best_only=True,
-                             verbose=1)
-
-earlystop = EarlyStopping(monitor='val_loss',
-                          min_delta=0,
-                          patience=3,
-                          verbose=1,
-                          restore_best_weights=True
-                          )
-
-reduce_lr = ReduceLROnPlateau(monitor='val_loss',
-                              factor=0.2,
-                              patience=3,
-                              verbose=1,
-                              min_delta=0.0001)
-
-callbacks = [earlystop, checkpoint, reduce_lr]
-
-model.compile(loss='categorical_crossentropy',
-              optimizer=Adam(lr=0.001),
-              metrics=['accuracy'])
-
-nb_train_samples = 24176
-nb_validation_samples = 3006
-epochs = 15
-
-history = model.fit_generator(
-    train_generator,
-    steps_per_epoch=nb_train_samples // batch_size,
-    epochs=epochs,
-    callbacks=callbacks,
-    validation_data=validation_generator,
-    validation_steps=nb_validation_samples // batch_size)
