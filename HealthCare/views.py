@@ -63,7 +63,7 @@ def login(req):
 
 
 def test(req):
-    return render(req, 'login.html', {})
+    return render(req, 'event.html', {})
 
 
 def testing(req):

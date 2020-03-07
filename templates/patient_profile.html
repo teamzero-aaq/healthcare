@@ -51,7 +51,7 @@
                                                     address</label>
                                                 <input type="text" name="email" id="email"
                                                        class="form-control form-control-alternative"
-                                                       placeholder="name@example.com" value="{{ user.mail }}" disabled>
+                                                       placeholder="name@example.com" value="{{ user.mail }}">
                                             </div>
                                         </div>
 
@@ -63,22 +63,127 @@
                                                 <label class="form-control-label" for="input-contact">Contact</label>
                                                 <input type="text" name="pcontact" id="pcontact"
                                                        class="form-control form-control-alternative"
-                                                       placeholder="Enter contact" value="{{ user.phone }}" disabled>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-first-name">Disease</label>
-                                                <input type="text" name="disease" id="disease"
-                                                       class="form-control form-control-alternative"
-                                                       placeholder="Disease" value="{{ user.disease }}">
+                                                       placeholder="Enter contact" value="{{ user.phone }}">
                                             </div>
                                         </div>
 
 
                                     </div>
-                                    {#                                    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>#}
+                                    <hr>
+                                    <h6 class="heading-small text-muted mb-4">General Information</h6>
+                                    <div class="row">
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="age">Age</label>
+                                                <input type="number" name="age" id="age"
+                                                       class="form-control form-control-alternative" placeholder="Age"
+                                                       value="{{ user.name }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="height">Height</label>
+                                                <input type="text" name="height" id="height"
+                                                       class="form-control form-control-alternative"
+                                                       placeholder="name@example.com" value="{{ user.mail }}">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Gender</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" name="gender" id="gender">
+                                                        <option value="" disabled selected hidden>Choose your Gender
+                                                        </option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Blood Group</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" name="blood" id="blood">
+                                                        <option value="" disabled selected hidden>Choose your blood
+                                                            group
+                                                        </option>
+                                                        <option>A RhD positive (A+)</option>
+                                                        <option>A RhD negative (A-)</option>
+                                                        <option>B RhD positive (B+)</option>
+                                                        <option>B RhD negative (B-)</option>
+                                                        <option>O RhD positive (O+)</option>
+                                                        <option>O RhD negative (O-)</option>
+                                                        <option>AB RhD positive (AB+)</option>
+                                                        <option>AB RhD negative (AB-)</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="Allergies">Allergies</label>
+                                                <input type="text" name="allergies" id="allergies"
+                                                       class="form-control form-control-alternative"
+                                                       placeholder="Allergies" value="{{ user.mail }}">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <hr>
+                                    <h6 class="heading-small text-muted mb-4">Emergency Contact</h6>
+                                    <div class="row">
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="name">Name</label>
+                                                <input type="text" name="ename" id="ename"
+                                                       class="form-control form-control-alternative" placeholder="Name"
+                                                       value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="contact">Contact No.</label>
+                                                <input type="number" name="econtact" id="econtact"
+                                                       class="form-control form-control-alternative"
+                                                       placeholder="Contact No." value="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="relation">Relation</label>
+                                                <input type="text" name="relation" id="relation"
+                                                       class="form-control form-control-alternative"
+                                                       placeholder="Enter your Relation" value="">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                                 </div>
 
 
