@@ -496,6 +496,8 @@ def doctor_dashboard(req):
     else:
         return HttpResponseRedirect("/login")
 
+def admin_dashboard(req):
+    return render(req, 'admin_dashboard.html')
 
 def doctor_profile(req):
     return render(req, 'doctor_profile.html', {"user": Common.currentUser})

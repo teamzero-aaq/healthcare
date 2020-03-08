@@ -56,6 +56,7 @@ urlpatterns = [
     path('testingdd', views.testingdd),
 
     path('doctor_dashboard/', views.doctor_dashboard),
+path('admin_dashboard/', views.admin_dashboard),
     path('adddocpost', views.adddocpost),
     url(r'^answer/(?P<pk>\d+)$', views.viewdocans),
     url(r'^doc_profile/(?P<pk>\d+)$', views.viewdocprofile),
