@@ -52,6 +52,8 @@ urlpatterns = [
     path('addchat', views.addchat),
     path('stress_analysis_submit_doc', views.stress_analysis_submit_doc),
     path('testing/', views.testing),
+    path('symptom/', views.symptom),
+    path('testingdd', views.testingdd),
 
     path('doctor_dashboard/', views.doctor_dashboard),
     path('adddocpost', views.adddocpost),

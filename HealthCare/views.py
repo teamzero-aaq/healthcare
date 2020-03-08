@@ -5,7 +5,7 @@ from datetime import datetime, date
 
 import pyrebase
 from bs4 import BeautifulSoup
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from requests import get
 
@@ -25,8 +25,17 @@ def clean(s):
 
 
 def testingdd(req):
-    str = DecisionTree('back_pain', 'malaise', 'dizziness', 'puffy_face_and_eyes', 'loss_of_smell')
-    return HttpResponse('<h1>' + str + '</h1>')
+    s1 = req.POST['s1']
+    s2 = req.POST['s2']
+    s3 = req.POST['s3']
+    s4 = req.POST['s4']
+    s5 = req.POST['s5']
+    str = DecisionTree(s1, s2, s3, s4, s5)
+    allsym = ['acidity', 'vomiting', 'indigestion', 'headache', 'nausea', 'blurred_and_distorted_vision', 'chest_pain',
+              'dizziness', 'excessive_hunger', 'stiff_neck', 'spinning_movements', 'loss_of_balance', 'unsteadiness',
+              'weakness_of_one_body_side', 'depression', 'irritability', 'altered_sensorium', 'lack_of_concentration',
+              'visual_disturbances']
+    return render(req, 'symptom.html', {"user": Common.currentUser, "allsym": allsym, "res": str})
 
 
 def yt_scrape():
@@ -324,6 +333,14 @@ def meditation(req):
     data = yt_scrape()
     print(data)
     return render(req, 'meditation.html', {"user": Common.currentUser, "youtube": data})
+
+
+def symptom(req):
+    allsym = ['acidity', 'vomiting', 'indigestion', 'headache', 'nausea', 'blurred_and_distorted_vision', 'chest_pain',
+              'dizziness', 'excessive_hunger', 'stiff_neck', 'spinning_movements', 'loss_of_balance', 'unsteadiness',
+              'weakness_of_one_body_side', 'depression', 'irritability', 'altered_sensorium', 'lack_of_concentration',
+              'visual_disturbances']
+    return render(req, 'symptom.html', {"user": Common.currentUser, "allsym": allsym})
 
 
 def chatwithdoc(req, pk):
