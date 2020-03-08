@@ -6,10 +6,9 @@ from email.mime.text import MIMEText
 def sendmail(receiver, title, msgbody, link):
     port = 465  # 587  # For starttls
     smtp_server = "smtp.gmail.com"
-    sender_email = "shifakarol77@gmail.com"
-    password = "Shifa@007"
+    sender_email = "hgokhru3@gmail.com"
+    password = "qwerty@123"
     toaddrs = receiver
-
     msg = MIMEText("Click to chat " + link)
     msg['Subject'] = title
     msg['To'] = sender_email
@@ -24,8 +23,8 @@ def sendmail(receiver, title, msgbody, link):
 def sendmail1(receiver, title, msgbody):
     port = 465  # 587  # For starttls
     smtp_server = "smtp.gmail.com"
-    sender_email = "shifakarol77@gmail.com"
-    password = "Shifa@007"
+    sender_email = "hgokhru3@gmail.com"
+    password = "qwerty@123"
     toaddrs = receiver
 
     msg = MIMEText(msgbody)
