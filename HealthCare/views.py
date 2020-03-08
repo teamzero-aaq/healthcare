@@ -496,11 +496,35 @@ def doctor_dashboard(req):
     else:
         return HttpResponseRedirect("/login")
 
+
 def admin_dashboard(req):
     return render(req, 'admin_dashboard.html')
 
+
 def doctor_profile(req):
-    return render(req, 'doctor_profile.html', {"user": Common.currentUser})
+    db = connect_firebase()
+    d = db.child("disease").get().val()
+    return render(req, 'doctor_profile.html', {"user": Common.currentUser, "disease": d})
+
+
+def savedocpro(req):
+    pname = req.POST['pname']
+    disease = req.POST['disease']
+    gender = req.POST['gender']
+    age = req.POST['age']
+    bio = req.POST['about']
+
+    data = {
+        "pname": pname,
+        "disease": disease,
+        "gender": gender,
+        "age": age,
+        "bio": bio
+    }
+
+    db = connect_firebase()
+    db.child("users").child(Common.currentUser.get("phone")).update(data)
+    return HttpResponseRedirect("/doctor_dashboard")
 
 
 def doctor_tips(req):
