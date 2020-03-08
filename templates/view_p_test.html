@@ -565,6 +565,31 @@
 
                             <form action="stress_analysis_submit" method="post">
                                 {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group mt-4">
+                                             <label class="col-sm-4 col-form-label">Text Area</label>
+                                            <textarea name="" id="" cols="30" rows="4" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group row mt-4">
+                                            <label class="col-form-label">Select Name</label>
+
+                                                <select class="form-control form-control-sm" id="d" name="d" required>
+                                                    <option value="">Select</option>
+                                                    {% for i in disease %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            <button class="btn btn-gradient-primary btn-sm float-right mt-2" type="submit">
+                                                Sort
+                                            </button>
+
+
+                                        </div>
+                                    </div>
+                                    </div>
 
                                 <a href="#" class="form-link">
                                     <button type="submit" class="btn btn-success mt-4 float-right"> Submit</button>
