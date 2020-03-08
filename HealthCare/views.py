@@ -12,6 +12,7 @@ from requests import get
 from . import Common
 from . import PyConfig
 from .SendMail import sendmail
+from .SendMail import sendmail1
 from .clean_code import DecisionTree
 
 
@@ -198,13 +199,15 @@ def viewpatientdetails(req):
 def viewpatienttest(req, pk):
     db = connect_firebase()
     ptest = db.child("stress_analysis").child(str(pk)).get().val()
+    disease = db.child("disease").get().val()
 
     # count = int(posts.get("totalview"))
     # count += 1
     # data = {"totalview": count}
     # db.child("patient_post").child(str(pk)).update(data)
     # posts = db.child("patient_post").child(str(pk)).get().val()
-    return render(req, 'view_p_test.html', {"user": Common.currentUser, "ptest": ptest})
+    return render(req, 'view_p_test.html',
+                  {"user": Common.currentUser, "ptest": ptest, "disease": disease, "pkey": str(pk)})
 
 
 def viewquestiondetail(req, pk):
@@ -293,6 +296,28 @@ def stress_analysis_submit(req):
                   {"swicon": "success", "swtitle": "Done",
                    "swmsg": "Your form has been saved successfully.Please wait for Doctor to reply",
                    "path": "patient_dashboard"})
+
+
+def stress_analysis_submit_doc(req):
+    pkey = req.POST['key']
+    d = req.POST['d']
+    sol = req.POST['sol']
+    db = connect_firebase()
+
+    data = {
+        "diseas": d, "remark": sol
+    }
+
+    db.child("stress_analysis").child(pkey).update(data)
+
+    usermail = db.child("users").child(pkey).child("mail").get().val()
+    msg = "Doctor has commented on test details are " + "Remark: " + sol + ". Disease is " + d + "Doctor Name is " + Common.currentUser.get(
+        "name")
+    sendmail1(usermail, "Updated Recevied", msg)
+    return render(req, 'redirect.html',
+                  {"swicon": "success", "swtitle": "Done",
+                   "swmsg": "Updated ",
+                   "path": "doctor_dashboard"})
 
 
 def meditation(req):

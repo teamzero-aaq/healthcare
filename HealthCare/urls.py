@@ -50,6 +50,7 @@ urlpatterns = [
 
     url(r'^question/(?P<pk>\d+)$', views.viewquestiondetail),
     path('addchat', views.addchat),
+    path('stress_analysis_submit_doc', views.stress_analysis_submit_doc),
     path('testing/', views.testing),
 
     path('doctor_dashboard/', views.doctor_dashboard),
