@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+
+
+</head>
+<body>
+<div class="container-scroller">
+
+    {% include "patient_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+
+            <div class="row">
+                <div class="col-sm-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Button trigger modal -->
+
+                            <h3 class="page-title">
+			               <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                          <i class="mdi mdi-format-list-bulleted"></i>
+                        </span> Check Symptoms
+
+                            </h3>
+
+                            <form class="forms-sample mt-4" action="" method="post">
+
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Symptom 1</label>
+                                            <select class="form-control form-control-sm" id="d" name="s1" required>
+                                                    <option value="">Select</option>
+                                                    {% for i in disease %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Symptom 2</label>
+                                             <select class="form-control form-control-sm" id="d" name="s2" required>
+                                                    <option value="">Select</option>
+                                                    {% for i in disease %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Symptom 3</label>
+                                             <select class="form-control form-control-sm" id="d" name="s3" required>
+                                                    <option value="">Select</option>
+                                                    {% for i in disease %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Symptom 4</label>
+                                             <select class="form-control form-control-sm" id="d" name="s4" required>
+                                                    <option value="">Select</option>
+                                                    {% for i in disease %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Symptom 5</label>
+                                             <select class="form-control form-control-sm" id="d" name="s5" required>
+                                                    <option value="">Select</option>
+                                                    {% for i in disease %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
+
+                                        {% csrf_token %}
+                                        <button type="submit"
+                                                class="btn btn-gradient-success mr-2 btn-sm float-right mb-4">
+                                            Check
+                                        </button>
+                                    </div>
+
+
+                                </div>
+
+                            </form>
+
+
+
+
+
+                        </div><!-- end card body-->
+                    </div><!-- end card-->
+                </div><!--col sidebar end-->
+
+            </div><!--row end-->
+        </div>
+        <!-- content-wrapper ends -->
+        {% include "footer.html" %}
+</body>
+</html>

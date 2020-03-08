@@ -76,7 +76,7 @@ def login(req):
 
 
 def test(req):
-    return render(req, 'patient_details.html', {})
+    return render(req, 'symptom.html', {})
 
 
 def testing(req):
