@@ -26,8 +26,7 @@
 
                             </h3>
 
-                            <form class="forms-sample mt-4" action="" method="post">
-
+                            <form class="forms-sample mt-4" action="add_event_db" method="post">
 
                                 <div class="row mt-4">
                                     <div class="col-md-4">
@@ -36,7 +35,7 @@
                                             <input type="text" name="ename" id="ename"
                                                    class="form-control form-control-alternative"
                                                    placeholder="Name of Event"
-                                                   value="{{ user.name }}">
+                                            >
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -50,7 +49,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-username">Time of Event</label>
-                                            <input type="date" name="eadate" id="edate"
+                                            <input type="text" name="eatime" id="eatime"
                                                    class="form-control form-control-alternative">
                                         </div>
 
@@ -81,22 +80,22 @@
 
                             <!--Start Loop-->
 
-                            {% for key,val in all_q.items %}
-                                <div class="col-sm-12 grid-margin stretch-card mb-0">
-
-
-                                    <ul class="list-arrow">
-
-                                        <li><a href="/question/{{ key }}" style="text-decoration : none;"
-                                               class="text-dark">{{ val.question }}</a></li>
-                                        <hr>
-
-
-                                    </ul>
-
-                                </div>
-
-                            {% endfor %}
+                            {#                            {% for key,val in othervevents.items %}#}
+                            {#                                <div class="col-sm-12 grid-margin stretch-card mb-0">#}
+                            {##}
+                            {##}
+                            {#                                    <ul class="list-arrow">#}
+                            {##}
+                            {#                                        <li><a href="/question/{{ key }}" style="text-decoration : none;"#}
+                            {#                                        sohil       class="text-dark">{{ val.question }}</a></li>#}
+                            {#                                        <hr>#}
+                            {##}
+                            {##}
+                            {#                                    </ul>#}
+                            {##}
+                            {#                                </div>#}
+                            {##}
+                            {#                            {% endfor %}#}
                             <!--end-->
 
 

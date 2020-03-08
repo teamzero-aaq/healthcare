@@ -55,8 +55,10 @@ urlpatterns = [
     url(r'^doc_profile/(?P<pk>\d+)$', views.viewdocprofile),
 
     path('docgiveans', views.docgiveans),
+    path('add_event', views.add_event),
+    path('add_event_db', views.add_event_db),
     path('doctor_profile/', views.doctor_profile),
-    path('doctor_tips/', views.doctor_tips),
+    path('doctortips/', views.doctor_tips),
     path('patient_signup', views.patient_signup),
     path('doctor_signup', views.doctor_signup),
     path('user_add', views.user_add),

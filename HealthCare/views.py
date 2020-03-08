@@ -217,7 +217,9 @@ def savepatient_profile(req):
 
 
 def patient_viewevent(req):
-    return render(req, 'event.html', {"user": Common.currentUser})
+    db = connect_firebase()
+    allevent = db.child("events").get(0).val()
+    return render(req, 'event.html', {"user": Common.currentUser, "allevent": allevent})
 
 
 def doctor_contact(req):
@@ -375,6 +377,31 @@ def docgiveans(req):
     db.child("patient_ques").child(key).update({"answer": allans})
     db.child("users").child(Common.currentUser.get("phone")).update({"givenans": givenans})
     return HttpResponseRedirect('answer/' + key)
+
+
+def add_event(req):
+    return render(req, 'add_event.html',
+                  {"user": Common.currentUser})
+
+
+def add_event_db(req):
+    db = connect_firebase()
+    ename = req.POST['ename']
+    edate = req.POST['edate']
+    eatime = req.POST['eatime']
+    location = req.POST['location']
+
+    timestamp = datetime.timestamp(datetime.now())
+    strtimestamp = str(timestamp).replace('.', '')
+
+    data = {
+        "ename": ename, "eatime": eatime, "edate": edate, "location": location,
+        "docname": Common.currentUser.get("name"), "doc_key": Common.currentUser.get("phone")
+    }
+
+    db.child("events").child(strtimestamp).update(data)
+
+    return HttpResponseRedirect('doctor_dashboard')
 
 
 def doctor_dashboard(req):
