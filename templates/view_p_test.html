@@ -1,0 +1,585 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "html_head.html" %}
+</head>
+<body>
+
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    {% include "doctor_sidebar.html" %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-xl-12 order-xl-1">
+                    <div class="card p-3">
+
+                        <div class="card-header bg-white border-0 mt-2">
+                            <div class="row align-items-center">
+                                <div class="col-8 grid-margin stretch-card">
+                                    <h3 class="page-title">
+			                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+			                  <i class="mdi mdi-lightbulb"></i>
+			                </span> Test Given</h3>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+
+
+                            <table class="table table-bordered">
+
+                                <thead class="text-center">
+                                <tr>
+                                    <th> Questions</th>
+                                    <th> Did not apply <br>to me at all</th>
+                                    <th> Applied to me to <br>some degree, or <br>some of the time.</th>
+                                    <th> Applied to me a <br>considerable degree, or <br>a good part of the time
+                                    </th>
+                                    <th> Applied to me <br> much, or most <br>of the time</th>
+                                </tr>
+                                </thead>
+                                <tbody class="text-center">
+
+                                <tr>
+                                    <td>I found myself <br>getting upset by <br> quite trivial things</td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled value="1"
+                                                        {% if ptest.q1 == "1" %}
+                                                       checked
+                                                        {% endif %}
+                                                       class="form-check-input" name="q1"
+                                                       id="q1"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input
+                                                        type="radio" disabled value="2"
+                                                        {% if ptest.q1 == "2" %}
+                                                        checked
+                                                        {% endif %}
+                                                        name="q1"
+                                                        id="q1">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled value="3" class="form-check-input"
+                                                       name="q1"
+                                                        {% if ptest.q1 == "3" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q1"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="4"
+                                                       name="q1"
+                                                        {% if ptest.q1 == "4" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q1">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>I was aware of <br> dryness of my mouth</td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="1"
+                                                       name="q2"
+                                                        {% if ptest.q2 == "1" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q2"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="2"
+                                                       name="q2"
+                                                        {% if ptest.q2 == "2" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q2">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="3"
+                                                       name="q2"
+                                                        {% if ptest.q2 == "3" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q2"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="4"
+                                                        {% if ptest.q2 == "4" %}
+                                                       checked
+                                                        {% endif %}
+                                                       name="q2"
+                                                       id="q2">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>I couldn't seem to <br>experience any positive <br>feeling at all</td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="1"
+                                                       name="q3"
+                                                        {% if ptest.q3 == "1" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q3"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="2"
+                                                       name="q3"
+                                                        {% if ptest.q3 == "2" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q3">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="3"
+                                                       name="q3"
+                                                        {% if ptest.q3 == "3" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q3"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="4"
+                                                       name="q3"
+                                                        {% if ptest.q3 == "4" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q3">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>I experienced breathing <br>difficulty (eg, excessively <br>rapid breathing,
+                                        breathlessness
+                                        <br>in the absence of <br>physical exertion)
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="1"
+                                                       name="q4"
+                                                        {% if ptest.q4 == "1" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q4"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" name="q4"
+                                                       value="2"
+                                                        {% if ptest.q4 == "2" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q4">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="3"
+                                                       name="q4"
+                                                        {% if ptest.q4 == "3" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q4"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" name="q4"
+                                                       value="4"
+                                                        {% if ptest.q4 == "4" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q4">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>I just couldn't <br>seem to get going</td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" name="q5"
+                                                       value="1"
+                                                        {% if ptest.q5 == "1" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q5"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" name="q5"
+                                                       value="2"
+                                                        {% if ptest.q5 == "2" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q5">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" name="q5"
+                                                       value="3"
+                                                        {% if ptest.q5 == "3" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q5"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" name="q5"
+                                                       value="4"
+                                                       id="q5">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>I tended to over-react <br> to situations</td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="1"
+                                                       name="q6"
+                                                        {% if ptest.q6 == "1" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q6"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="2"
+                                                       name="q6"
+                                                        {% if ptest.q6 == "2" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q6">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="3"
+                                                       name="q6"
+                                                        {% if ptest.q6 == "3" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q6"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="4"
+                                                       name="q6"
+                                                        {% if ptest.q6 == "4" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q6">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>I had a feeling of shakiness <br> (eg, legs going to give way)</td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="1"
+                                                       name="q7"
+                                                        {% if ptest.q7 == "1" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q7"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="2"
+                                                       name="q7"
+                                                        {% if ptest.q7 == "2" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q7">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="3"
+                                                       name="q7"
+                                                        {% if ptest.q7 == "3" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q7"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="4"
+                                                       name="q7"
+                                                        {% if ptest.q7 == "4" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q7">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>I found it difficult <br> to relax</td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="1"
+                                                       name="q8"
+                                                        {% if ptest.q8 == "1" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q8"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="2"
+                                                       name="q8"
+                                                        {% if ptest.q8 == "2" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q8">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="3"
+                                                       name="q8"
+                                                        {% if ptest.q8 == "3" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q8"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="4"
+                                                       name="q8"
+                                                        {% if ptest.q8 == "4" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q8">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>I found myself in situations <br>that made me so anxious <br>I was most
+                                        relieved when
+                                        <br>they ended
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="1"
+                                                       name="q9"
+                                                        {% if ptest.q9 == "1" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q9"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="2"
+                                                       name="q9"
+                                                        {% if ptest.q9 == "2" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q9">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="3"
+                                                       name="q9"
+                                                        {% if ptest.q9 == "3" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q9"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="4"
+                                                       name="q9"
+                                                        {% if ptest.q9 == "4" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q9">
+                                                .</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>I felt that I had nothing <br>to look forward to</td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="1"
+                                                       name="q10"
+                                                        {% if ptest.q10 == "1" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q10"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="2"
+                                                       name="q10"
+                                                        {% if ptest.q10 == "2" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q10"> .</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="3"
+                                                       name="q10"
+                                                        {% if ptest.q10 == "3" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q10"> .
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-check-primary">
+                                            <label class="form-check-label text-white">
+                                                <input type="radio" disabled class="form-check-input" value="4"
+                                                       name="q10"
+                                                        {% if ptest.q10 == "4" %}
+                                                       checked
+                                                        {% endif %}
+                                                       id="q10"> .</label>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+
+
+                            </table>
+
+                            <form action="stress_analysis_submit" method="post">
+                                {% csrf_token %}
+
+                                <a href="#" class="form-link">
+                                    <button type="submit" class="btn btn-success mt-4 float-right"> Submit</button>
+                                </a>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include "footer.html" %}
+</body>
+</html>

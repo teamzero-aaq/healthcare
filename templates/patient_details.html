@@ -17,98 +17,109 @@
                           <i class="mdi mdi-format-list-bulleted"></i>
                         </span>List of Patients</h3>
             <div class="row">
-                <div class="col-sm-4 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <a href="/doc_profile/{{ val.docid }}" style="text-decoration : none ;"
-                               class="text-primary">
-                                <h4 class="mb-2">Patient Name</h4></a>
 
-                            <p><i class="mdi mdi-phone text-success mr-2"></i>Contact</p>
-                            <h6 class="card-text">
-                                <span class="badge badge-danger"> Patient Disease</span>
-                                <button type="button" class="badge badge-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">
-                                      View Details</button>
+                {% for key,val in allp.items %}
+                    <div class="col-sm-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-2">{{ val.name }}</h4>
 
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                      <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Patients Details</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
-                                          </div>
-                                          <div class="modal-body">
-                                              <h6 class="heading-small text-muted mb-4">User Information</h6>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <h6>Name : Patient Name</h6>
+                                <p><i class="mdi mdi-phone text-success mr-2"></i>{{ val.phone }}</p>
+                                <h6 class="card-text">
+                                    <span class="badge badge-danger"> {{ val.disease }}</span>
+                                    <a type="button" class="badge badge-primary" href="viewpatienttest/{{ key }}">
+                                        View Test
+                                    </a>
+                                    <button type="button" class="badge badge-primary float-right" data-toggle="modal"
+                                            data-target="#exampleModalCenter-{{ key }}">
+                                        View Details
+                                    </button>
+
+                                    <div class="modal fade" id="exampleModalCenter-{{ key }}" tabindex="-1"
+                                         role="dialog"
+                                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Patients
+                                                        Details</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h6 class="heading-small text-muted mb-4">User Information</h6>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h6>Name : {{ val.name }}</h6>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <h6>Email : {{ val.mail }}</h6>
+                                                        </div>
                                                     </div>
-                                                     <div class="col-lg-6">
-                                                        <h6>Email : Patient Email</h6>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h6>Contact : {{ val.phone }}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <h6 class="heading-small text-muted mb-4">General Information</h6>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h6>Age : {{ val.age }}</h6>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <h6>Height : {{ val.height }}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h6>Gender : {{ val.gender }}</h6>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <h6>Blood Group : {{ val.blood }}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h6>Allergies : {{ val.allergies }}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <h6 class="heading-small text-muted mb-4">Emergency Contact</h6>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h6>Name : {{ val.ename }}</h6>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <h6>Contact : {{ val.econtact }}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h6>Relation : {{ val.relation }}</h6>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                         <h6>Contact : Patient Contact No.</h6>
-                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close
+                                                    </button>
                                                 </div>
-                                                <hr>
-                                                <h6 class="heading-small text-muted mb-4">General Information</h6>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <h6>Age : Patient Age</h6>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <h6>Height : Patient Heigth</h6>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                    <h6>Gender : Male</h6>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                    <h6>Blooad Group : O+</h6>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <h6>Allergies : Allergies</h6>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <h6 class="heading-small text-muted mb-4">Emergency Contact</h6>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                         <h6>Name : Name</h6>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                         <h6>Contact : Contact</h6>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                         <h6>Relation : Father</h6>
-                                                    </div>
-                                                </div>
-                                          </div>
-                                          <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                          </div>
+                                            </div>
                                         </div>
-                                      </div>
-                                </div>
-                            </h6>
-                        </div><!-- end card body-->
-                    </div><!-- end card-->
-                </div><!--col-12  end-->
+                                    </div>
+                                </h6>
+                            </div><!-- end card body-->
+                        </div><!-- end card-->
+                    </div><!--col-12  end-->
+                {% endfor %}
             </div>
         </div>
 
 
-
-            <!-- content-wrapper ends -->
+        <!-- content-wrapper ends -->
         {% include "footer.html" %}
 </body>
 </html>

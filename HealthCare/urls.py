@@ -42,6 +42,8 @@ urlpatterns = [
 
     path('ask_ques/', views.ask_ques),
     path('addpatques', views.addpatques),
+    path('viewpatientdetails', views.viewpatientdetails),
+    url(r'^viewpatienttest/(?P<pk>\d+)$', views.viewpatienttest),
     url(r'^posts/(?P<pk>\d+)$', views.viewpostdetails),
     url(r'^chatwithdoc/(?P<pk>\d+)$', views.chatwithdoc),
 

@@ -179,6 +179,30 @@ def viewpostdetails(req, pk):
     return render(req, 'view_exp.html', {"post": posts, "user": Common.currentUser})
 
 
+def viewpatientdetails(req):
+    db = connect_firebase()
+    allp = db.child("users").order_by_child("user_type").equal_to("Patient").get().val()
+
+    # count = int(posts.get("totalview"))
+    # count += 1
+    # data = {"totalview": count}
+    # db.child("patient_post").child(str(pk)).update(data)
+    # posts = db.child("patient_post").child(str(pk)).get().val()
+    return render(req, 'patient_details.html', {"user": Common.currentUser, "allp": allp})
+
+
+def viewpatienttest(req, pk):
+    db = connect_firebase()
+    ptest = db.child("stress_analysis").child(str(pk)).get().val()
+
+    # count = int(posts.get("totalview"))
+    # count += 1
+    # data = {"totalview": count}
+    # db.child("patient_post").child(str(pk)).update(data)
+    # posts = db.child("patient_post").child(str(pk)).get().val()
+    return render(req, 'view_p_test.html', {"user": Common.currentUser, "ptest": ptest})
+
+
 def viewquestiondetail(req, pk):
     db = connect_firebase()
     ques = db.child("patient_ques").child(str(pk)).get().val()
