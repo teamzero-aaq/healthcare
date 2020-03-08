@@ -13,6 +13,7 @@ from . import Common
 from . import PyConfig
 from .SendMail import sendmail
 from .clean_code import DecisionTree
+from .runcam import startcam
 
 
 def clean(s):
@@ -165,6 +166,11 @@ def patient_dashboard(req):
 
 
 def play_games(req):
+    return render(req, 'games.html', {"user": Common.currentUser})
+
+
+def opencam(req):
+    startcam()
     return render(req, 'games.html', {"user": Common.currentUser})
 
 
